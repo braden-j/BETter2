@@ -39,7 +39,7 @@ function JournalUpload() {
 
       <BottomNav 
         onNextClick={handleSubmit}
-        nextLabel="Submit"
+        nextLabel="Next"
         showUtilityButtons={true}
       />
     </div>

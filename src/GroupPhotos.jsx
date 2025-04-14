@@ -13,6 +13,7 @@ function GroupPhotos() {
   const [ungrouped, setUngrouped] = useState([]);
   const [selected, setSelected] = useState([]);
   const [isGrouping, setIsGrouping] = useState(false);
+  const [showInstructions, setShowInstructions] = useState(true); // State for showing instructions
   
   useEffect(() => {
     setUngrouped(selectedImages.map((image, index) => ({
@@ -42,11 +43,13 @@ function GroupPhotos() {
   const startGrouping = () => {
     setIsGrouping(true);
     setSelected([]);
+    setShowInstructions(false); // Hide instructions when starting grouping
   };
   
   const cancelGrouping = () => {
     setIsGrouping(false);
     setSelected([]);
+    setShowInstructions(true); // Show instructions again if canceled
   };
   
   const createNewGroup = () => {
@@ -63,6 +66,7 @@ function GroupPhotos() {
 
     setSelected([]);
     setIsGrouping(false);
+    setShowInstructions(true); // Show instructions again after group is created
   };
   
   const removePhotoFromGroup = (groupId, photoId) => {
@@ -148,13 +152,14 @@ function GroupPhotos() {
           </div>
         )}
       </div>
-      
-      {isGrouping && (
+
+      {/* Add instruction box to display before the grouping starts */}
+      {showInstructions && (
         <div className="selection-instructions">
-          <p>Select two or more photos to group them together</p>
+          <p>To create a thematic collection, tap "Create Group" and select multiple photos. This will keep similar photos together in your TimeFrame summarization.</p>
         </div>
       )}
-      
+
       {groups.length > 0 && (
         <div className="photo-groups-container">
           <h3 className="groups-title">Photo Groups</h3>
@@ -195,7 +200,7 @@ function GroupPhotos() {
           ))}
         </div>
       )}
-      
+
       {ungrouped.length > 0 && (
         <div className="ungrouped-photos-container">
           <h3 className="ungrouped-title">
