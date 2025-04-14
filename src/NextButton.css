@@ -1,0 +1,45 @@
+.custom-next-button {
+    width: 80px;  /* Increased from 60px */
+    height: 80px; /* Increased from 60px */
+    background-color: #6b5f57;
+    border-radius: 12px; /* Slightly increased from 10px for better proportion */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    bottom: 100px; /* Position it above the bottom nav */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease;
+    z-index: 10;
+  }
+  
+  .custom-next-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+  }
+  
+  .custom-next-button:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  }
+  
+  .next-button-icon {
+    width: 42px;  /* Increased from 30px */
+    height: 42px; /* Increased from 30px */
+    object-fit: contain;
+  }
+  
+  /* Mobile-specific adjustments */
+  @media (max-width: 480px) {
+    .custom-next-button {
+      width: 70px;  /* Increased from 50px */
+      height: 70px; /* Increased from 50px */
+      bottom: 90px;
+    }
+    .next-button-icon {
+      width: 36px;  /* Increased from 25px */
+      height: 36px; /* Increased from 25px */
+    }
+  }

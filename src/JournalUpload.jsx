@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import TopNav from './TopNav';
 import BottomNav from './BottomNav';
+import NextButton from './NextButton';
 import './JournalUpload.css';
 
 function JournalUpload() {
@@ -35,11 +36,12 @@ function JournalUpload() {
           value={journalEntry}
           onChange={(e) => setJournalEntry(e.target.value)}
         />
+
+        <NextButton onClick={handleSubmit} />
       </div>
 
       <BottomNav 
-        onNextClick={handleSubmit}
-        nextLabel="Submit"
+        showNextButton={false}
         showUtilityButtons={true}
       />
     </div>

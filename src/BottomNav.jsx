@@ -5,7 +5,7 @@ import bookIcon from './assets/BookIcon.png';
 import pencilIcon from './assets/PencilIcon.png';
 import userIcon from './assets/UserIcon.png';
 
-function BottomNav({ onNextClick, nextLabel, showUtilityButtons = true }) {
+function BottomNav({ onNextClick, nextLabel, showUtilityButtons = true, showNextButton = true }) {
   return (
     <div className="bottom-nav">
       {showUtilityButtons && (
@@ -21,12 +21,12 @@ function BottomNav({ onNextClick, nextLabel, showUtilityButtons = true }) {
           </button>
         </div>
       )}
-      <button 
+      {showNextButton && (<button 
         className="next-btn" 
         onClick={onNextClick}
       >
         {nextLabel || 'Next'}
-      </button>
+      </button>)}
     </div>
   );
 }
