@@ -1,0 +1,245 @@
+.selected-photos-container {
+  padding: 1rem;
+  background-color: #47403A;
+  color: #eee7e3;
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.photos-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.group-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #eee7e3;
+  text-align: center;
+  margin: 0;
+}
+
+.selection-instructions {
+  background-color: rgba(229, 200, 179, 0.2);
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.selection-instructions p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #e5c8b3;
+}
+
+.group-action-button {
+  background-color: #e5c8b3;
+  color: #47403A;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.group-action-button:hover {
+  background-color: #d9b9a0;
+}
+
+.group-action-button:disabled {
+  background-color: #a8948a;
+  cursor: not-allowed;
+}
+
+.group-action-button.cancel {
+  background-color: transparent;
+  border: 1px solid #e5c8b3;
+  color: #e5c8b3;
+  margin-right: 10px;
+}
+
+.group-action-button.confirm {
+  background-color: #e5c8b3;
+  color: #47403A;
+}
+
+.grouping-actions {
+  display: flex;
+}
+
+.image-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.gallery-item {
+  position: relative;
+  aspect-ratio: 1/1;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-item:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-item.selectable {
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.gallery-item.selected {
+  border: 2px solid #e5c8b3;
+}
+
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.selected-indicator {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  background-color: #e5c8b3;
+  color: #47403A;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.photo-groups-container, .ungrouped-photos-container {
+  margin-bottom: 24px;
+}
+
+.groups-title, .ungrouped-title {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  font-weight: 600;
+  color: #eee7e3;
+}
+
+.photo-group {
+  background-color: #6b5f57;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.group-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.group-button {
+  background-color: transparent;
+  border: 1px solid #e5c8b3;
+  color: #e5c8b3;
+  border-radius: 16px;
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.group-images {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.remove-photo-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 22px;
+  height: 22px;
+  background-color: #e5c8b3;
+  color: #47403A;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 480px) {
+  .top-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .nav-buttons {
+    margin-top: 10px;
+    align-self: flex-end;
+  }
+  
+  .image-gallery {
+    gap: 8px;
+  }
+  
+  .gallery-item {
+    border-radius: 8px;
+  }
+  
+  .title {
+    font-size: 1.3rem;
+  }
+  
+  .group-images {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .group-action-button {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .photos-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .group-action-button {
+    margin-top: 10px;
+  }
+  
+  .group-images {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 320px) {
+  .image-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
