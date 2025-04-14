@@ -76,7 +76,7 @@ function PhotoUpload() {
   
         <BottomNav 
           onNextClick={handleNext} 
-          nextLabel="Upload"
+          nextLabel="Upload Photos"
           showUtilityButtons={true}
         />
       </div>
