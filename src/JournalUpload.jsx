@@ -37,7 +37,10 @@ function JournalUpload() {
           onChange={(e) => setJournalEntry(e.target.value)}
         />
 
-        <NextButton onClick={handleSubmit} />
+        <NextButton 
+          onClick={handleSubmit}
+          label="Save journal entry?"
+         />
       </div>
 
       <BottomNav 
