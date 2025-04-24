@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './BottomNav.css';
 
 import bookIcon from './assets/BookIcon.png';
@@ -7,17 +8,23 @@ import userIcon from './assets/UserIcon.png';
 import nextIcon from './assets/arrow.png';
 
 function BottomNav({ onNextClick, nextLabel = 'Next', showUtilityButtons = true, showNextButton = true }) {
+  const navigate = useNavigate();
+
+  const handleBookClick = () => navigate('/journal-entries');
+  const handlePencilClick = () => navigate('/photo-upload');
+  const handleUserClick = () => navigate('/user');
+
   return (
     <div className="bottom-nav">
       {showUtilityButtons && (
         <div className="bottom-buttons">
-          <button>
+          <button onClick={handleBookClick}>
             <img src={bookIcon} className="icon" alt="Book" />
           </button>
-          <button>
+          <button onClick={handlePencilClick}>
             <img src={pencilIcon} className="icon" alt="Pencil" />
           </button>
-          <button>
+          <button onClick={handleUserClick}>
             <img src={userIcon} className="icon" alt="User" />
           </button>
         </div>

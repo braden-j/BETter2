@@ -117,22 +117,13 @@ function JournalEntries() {
     navigate('/photo-upload');
   };
 
-  const handleBack = () => {
-    navigate('/');
-  };
-
-  const handleSaveExit = () => {
-    navigate('/');
-  };
-
   return (
     <div className="journal-entries-container">
       <div className="content-area">
         <TopNav 
           title="TimeFrame" 
           date="March 23rd"
-          onBackClick={handleBack}
-          onSaveExitClick={handleSaveExit}
+          showBack={false}
         />
         
         <div className="journal-entries-header">
