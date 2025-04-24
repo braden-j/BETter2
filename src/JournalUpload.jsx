@@ -13,10 +13,6 @@ function JournalUpload() {
     navigate('/photo-upload')
   };
 
-  const handleSaveExit = () => {
-    navigate('/');
-  };
-
   return (
     <div className="journal-upload-container">
       <div className="content-area">
@@ -25,7 +21,6 @@ function JournalUpload() {
           title="TimeFrame" 
           date="March 23rd"
           showBack={false}
-          onSaveExitClick={handleSaveExit}
         />
 
         <h2 className="title">Add a Journal Entry</h2>

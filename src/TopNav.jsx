@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './TopNav.css';
 
-function TopNav({ title, date, onBackClick, showBack = true, onSaveExitClick }) {
+function TopNav({ title, date, onBackClick, showBack = true }) {
   const navigate = useNavigate();
 
   return (
@@ -13,7 +13,6 @@ function TopNav({ title, date, onBackClick, showBack = true, onSaveExitClick }) 
       </div>
       <div className="nav-buttons"> 
         {showBack && (<button onClick={onBackClick}>Back</button>)}
-        <button onClick={onSaveExitClick}>Save & Exit</button>
       </div>
     </div>
   );

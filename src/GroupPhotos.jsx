@@ -13,7 +13,7 @@ function GroupPhotos() {
   const [ungrouped, setUngrouped] = useState([]);
   const [selected, setSelected] = useState([]);
   const [isGrouping, setIsGrouping] = useState(false);
-  const [showInstructions, setShowInstructions] = useState(true); // State for showing instructions
+  const [showInstructions, setShowInstructions] = useState(true);
   
   useEffect(() => {
     setUngrouped(selectedImages.map((image, index) => ({
@@ -24,10 +24,6 @@ function GroupPhotos() {
 
   const handleBack = () => {
     navigate('/photo-upload');
-  };
-
-  const handleSaveExit = () => {
-    navigate('/');
   };
   
   const togglePhotoSelection = (photo) => {
@@ -43,13 +39,13 @@ function GroupPhotos() {
   const startGrouping = () => {
     setIsGrouping(true);
     setSelected([]);
-    setShowInstructions(false); // Hide instructions when starting grouping
+    setShowInstructions(false);
   };
   
   const cancelGrouping = () => {
     setIsGrouping(false);
     setSelected([]);
-    setShowInstructions(true); // Show instructions again if canceled
+    setShowInstructions(true);
   };
   
   const createNewGroup = () => {
@@ -120,7 +116,6 @@ function GroupPhotos() {
         title="TimeFrame" 
         date="March 23rd"
         onBackClick={handleBack}
-        onSaveExitClick={handleSaveExit}
       />
 
       <div className="photos-header">

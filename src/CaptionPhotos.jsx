@@ -51,10 +51,6 @@ function CaptionPhotos() {
     });
   };
 
-  const handleSaveExit = () => {
-    navigate('/');
-  };
-
   const handleCaptionChange = (e) => {
     setCaption(e.target.value);
   };
@@ -116,7 +112,6 @@ function CaptionPhotos() {
         title="TimeFrame" 
         date="March 23rd"
         onBackClick={handleBack}
-        onSaveExitClick={handleSaveExit}
       />
       
       <div className="caption-header">

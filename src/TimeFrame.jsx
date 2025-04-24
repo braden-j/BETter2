@@ -51,10 +51,6 @@ function TimeFrame() {
     });
   };
 
-  const handleSaveExit = () => {
-    navigate('/');
-  };
-
   const handleNext = () => {
     if (currGroup < groups.length - 1) {
       setCurrGroup(currGroup + 1);
@@ -80,7 +76,6 @@ function TimeFrame() {
         title="TimeFrame" 
         date="March 23rd"
         onBackClick={handleBack}
-        onSaveExitClick={handleSaveExit}
       />
       
       <div className="timeframe-header">

@@ -5,6 +5,7 @@ import CaptionPhotos from './CaptionPhotos';
 import JournalUpload from './JournalUpload';
 import TimeFrame from './TimeFrame';
 import Generate from './Generate';
+import JournalEntries from './JournalEntries';
 import './App.css';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
             <Route path="/caption-photos" element={<CaptionPhotos />} />
             <Route path="/generate" element={<Generate />} />
             <Route path="/timeframe" element={<TimeFrame />} />
+            <Route path="/journal-entries" element={<JournalEntries />} />
           </Routes>
         </main>
       </div>
