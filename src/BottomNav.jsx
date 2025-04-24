@@ -4,7 +4,7 @@ import './BottomNav.css';
 
 import bookIcon from './assets/BookIcon.png';
 import pencilIcon from './assets/PencilIcon.png';
-import userIcon from './assets/UserIcon.png';
+import timeIcon from './assets/TimeIcon.png';
 import nextIcon from './assets/arrow.png';
 
 function BottomNav({ onNextClick, nextLabel = 'Next', showUtilityButtons = true, showNextButton = true }) {
@@ -25,7 +25,7 @@ function BottomNav({ onNextClick, nextLabel = 'Next', showUtilityButtons = true,
             <img src={pencilIcon} className="icon" alt="Pencil" />
           </button>
           <button onClick={handleUserClick}>
-            <img src={userIcon} className="icon" alt="User" />
+            <img src={timeIcon} className="icon" alt="Time" />
           </button>
         </div>
       )}
