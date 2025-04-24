@@ -4,6 +4,7 @@ import TopNav from './TopNav';
 import BottomNav from './BottomNav';
 import './JournalEntries.css';
 
+// Import the example images
 import exampleImage1 from './assets/Screenshot 2025-04-07 092724.png';
 import exampleImage2 from './assets/Screenshot 2025-04-07 092743.png';
 import exampleImage3 from './assets/Screenshot 2025-04-07 092755.png';
@@ -20,6 +21,7 @@ import exampleImage12 from './assets/Screenshot 2025-04-09 182852.png';
 function JournalEntries() {
   const navigate = useNavigate();
   
+  // Sample data using the imported images - captions remain in data but won't be displayed
   const entries = [
     {
       id: 1,
@@ -33,7 +35,7 @@ function JournalEntries() {
             { id: 102, src: exampleImage2 },
             { id: 103, src: exampleImage3 }
           ],
-          caption: "The day started with a delightful lunch featuring a creamy seafood pasta, bursting with flavors of garlic and lemon. For dinner, the evening was marked by a flavorful grilled fish paired with perfectly roasted vegetables."
+          caption: "The day started with a delightful lunch featuring a creamy seafood pasta, bursting with flavors of garlic and lemon."
         },
         {
           id: 2,
@@ -41,7 +43,7 @@ function JournalEntries() {
             { id: 201, src: exampleImage4 },
             { id: 202, src: exampleImage5 }
           ],
-          caption: "The afternoon was spent immersed in nature, taking a scenic walk through lush forests and alongside peaceful streams. The beauty of the cascading waterfalls was truly mesmerizing, creating a sense of calm and awe."
+          caption: "The afternoon was spent immersed in nature, taking a scenic walk through lush forests and alongside peaceful streams."
         }
       ]
     },
@@ -56,7 +58,7 @@ function JournalEntries() {
             { id: 301, src: exampleImage6 },
             { id: 302, src: exampleImage7 }
           ],
-          caption: "Exploring the charming streets of Montmartre with their artistic history and vibrant atmosphere. Enjoyed a perfect espresso at a corner café while watching locals and tourists pass by."
+          caption: "Exploring the charming streets of Montmartre with their artistic history and vibrant atmosphere."
         }
       ]
     },
@@ -72,7 +74,7 @@ function JournalEntries() {
             { id: 402, src: exampleImage9 },
             { id: 403, src: exampleImage10 }
           ],
-          caption: "A day of museum hopping and street food adventures in Manhattan. The MoMA exhibition was particularly impressive, featuring works that challenged conventional perspectives on modern art."
+          caption: "A day of museum hopping and street food adventures in Manhattan."
         },
         {
           id: 5,
@@ -80,7 +82,7 @@ function JournalEntries() {
             { id: 501, src: exampleImage11 },
             { id: 502, src: exampleImage12 }
           ],
-          caption: "Evening walk through Central Park as the city lights began to twinkle. The contrast between urban architecture and natural beauty creates a magical atmosphere that's uniquely New York."
+          caption: "Evening walk through Central Park as the city lights began to twinkle."
         }
       ]
     },
@@ -97,7 +99,7 @@ function JournalEntries() {
             { id: 603, src: exampleImage5 },
             { id: 604, src: exampleImage7 }
           ],
-          caption: "Festive dinner with the family, featuring traditional recipes passed down through generations. The table was adorned with candles and seasonal decorations, creating a warm and inviting atmosphere."
+          caption: "Festive dinner with the family, featuring traditional recipes passed down through generations."
         }
       ]
     }
@@ -125,13 +127,18 @@ function JournalEntries() {
     navigate('/select-photos');
   };
 
+  const handleSaveExit = () => {
+    navigate('/');
+  };
+
   return (
     <div className="journal-entries-container">
       <div className="content-area">
         <TopNav 
           title="TimeFrame" 
-          date="March 23rd"
+          date="Your Journals"
           onBackClick={handleBack}
+          onSaveExitClick={handleSaveExit}
         />
         
         <div className="journal-entries-header">
@@ -153,7 +160,7 @@ function JournalEntries() {
                 <span className="entry-date">{entry.date}</span>
               </div>
               
-              <div className="entry-photos-preview">
+              <div className="entry-photos-grid">
                 {entry.photoGroups.slice(0, 1)[0]?.photos.slice(0, 4).map(photo => (
                   <div key={photo.id} className="entry-photo-thumbnail">
                     <img src={photo.src} alt="" className="thumbnail-img" />
@@ -164,10 +171,6 @@ function JournalEntries() {
                     +{entry.photoGroups.length - 1} more
                   </div>
                 )}
-              </div>
-              
-              <div className="entry-caption-preview">
-                {entry.photoGroups[0]?.caption}
               </div>
             </div>
           ))}
