@@ -92,7 +92,7 @@ function CaptionPhotos() {
   };
   
   const finishCaptioning = (updatedGroups) => {
-    navigate('/generate', { 
+    navigate('/timeframe', { 
       state: { 
         photoGroups: updatedGroups 
       }

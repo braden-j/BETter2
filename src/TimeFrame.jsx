@@ -43,7 +43,7 @@ function TimeFrame() {
       });
     });
     
-    navigate('/group-photos', { 
+    navigate(-1, { 
       state: { 
         selectedImages: allPhotos,
         photoGroups: groups 

@@ -130,7 +130,7 @@ function JournalEntries() {
       <div className="content-area">
         <TopNav 
           title="TimeFrame" 
-          date="Your Journals"
+          date="March 23rd"
           onBackClick={handleBack}
           onSaveExitClick={handleSaveExit}
         />

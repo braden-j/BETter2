@@ -35,7 +35,7 @@ function PhotoUpload() {
     };
 
     const handleBack = () => {
-      navigate('/journal-upload');
+      navigate('/journal-entries');
     };
   
     return (
