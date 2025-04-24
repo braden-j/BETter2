@@ -13,3 +13,4 @@ To run the project:
 Utilized ChatGPT to:
 - Help to generate starter code for building the pages which we then built on and modified (specifically help with things like spacing/setup in CSS, maintaining/translating styling for new pages)
 - Help with image selection/grouping functionality and CSS
+- Help with data persistence, management, and sharing between pages in the app

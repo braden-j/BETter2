@@ -1,5 +1,5 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import TopNav from './TopNav';
 import BottomNav from './BottomNav';
 import './JournalEntries.css';
@@ -17,91 +17,131 @@ import exampleImage10 from './assets/Screenshot 2025-04-09 182810.png';
 import exampleImage11 from './assets/Screenshot 2025-04-09 182834.png';
 import exampleImage12 from './assets/Screenshot 2025-04-09 182852.png';
 
+const hardcodeEntries = [
+  {
+    id: 1,
+    title: "Greece '25",
+    date: "March 23rd, 2025",
+    photoGroups: [
+      {
+        id: 1,
+        photos: [
+          { id: 101, src: exampleImage1 },
+          { id: 102, src: exampleImage2 },
+          { id: 103, src: exampleImage3 }
+        ],
+        caption: "The day started with a delightful lunch featuring a creamy seafood pasta, bursting with flavors of garlic and lemon."
+      },
+      {
+        id: 2,
+        photos: [
+          { id: 201, src: exampleImage4 },
+          { id: 202, src: exampleImage5 }
+        ],
+        caption: "The afternoon was spent immersed in nature, taking a scenic walk through lush forests and alongside peaceful streams."
+      }
+    ]
+  },
+  {
+    id: 2,
+    title: "Paris Weekend",
+    date: "February 14th, 2025",
+    photoGroups: [
+      {
+        id: 3,
+        photos: [
+          { id: 301, src: exampleImage6 },
+          { id: 302, src: exampleImage7 }
+        ],
+        caption: "Exploring the charming streets of Montmartre with their artistic history and vibrant atmosphere."
+      }
+    ]
+  },
+  {
+    id: 3,
+    title: "NYC Trip",
+    date: "January 5th, 2025",
+    photoGroups: [
+      {
+        id: 4,
+        photos: [
+          { id: 401, src: exampleImage8 },
+          { id: 402, src: exampleImage9 },
+          { id: 403, src: exampleImage10 }
+        ],
+        caption: "A day of museum hopping and street food adventures in Manhattan."
+      },
+      {
+        id: 5,
+        photos: [
+          { id: 501, src: exampleImage11 },
+          { id: 502, src: exampleImage12 }
+        ],
+        caption: "Evening walk through Central Park as the city lights began to twinkle."
+      }
+    ]
+  },
+  {
+    id: 4,
+    title: "Home Holidays",
+    date: "December 25th, 2024",
+    photoGroups: [
+      {
+        id: 6,
+        photos: [
+          { id: 601, src: exampleImage1 },
+          { id: 602, src: exampleImage3 },
+          { id: 603, src: exampleImage5 },
+          { id: 604, src: exampleImage7 }
+        ],
+        caption: "Festive dinner with the family, featuring traditional recipes passed down through generations."
+      }
+    ]
+  }
+];
+
 function JournalEntries() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const [entries, setEntries] = useState([]);
+  const [initialized, setInitialized] = useState(false);
   
-  const entries = [
-    {
-      id: 1,
-      title: "Greece '25",
-      date: "March 23rd, 2025",
-      photoGroups: [
-        {
-          id: 1,
-          photos: [
-            { id: 101, src: exampleImage1 },
-            { id: 102, src: exampleImage2 },
-            { id: 103, src: exampleImage3 }
-          ],
-          caption: "The day started with a delightful lunch featuring a creamy seafood pasta, bursting with flavors of garlic and lemon."
-        },
-        {
-          id: 2,
-          photos: [
-            { id: 201, src: exampleImage4 },
-            { id: 202, src: exampleImage5 }
-          ],
-          caption: "The afternoon was spent immersed in nature, taking a scenic walk through lush forests and alongside peaceful streams."
+  useEffect(() => {
+    const loadEntries = () => {
+      try {
+        const savedEntries = localStorage.getItem('journalEntries');
+        if (savedEntries) {
+          const parsedEntries = JSON.parse(savedEntries);
+          setEntries(parsedEntries);
+        } else {
+          setEntries(hardcodeEntries);
+          localStorage.setItem('journalEntries', JSON.stringify(hardcodeEntries));
         }
-      ]
-    },
-    {
-      id: 2,
-      title: "Paris Weekend",
-      date: "February 14th, 2025",
-      photoGroups: [
-        {
-          id: 3,
-          photos: [
-            { id: 301, src: exampleImage6 },
-            { id: 302, src: exampleImage7 }
-          ],
-          caption: "Exploring the charming streets of Montmartre with their artistic history and vibrant atmosphere."
-        }
-      ]
-    },
-    {
-      id: 3,
-      title: "NYC Trip",
-      date: "January 5th, 2025",
-      photoGroups: [
-        {
-          id: 4,
-          photos: [
-            { id: 401, src: exampleImage8 },
-            { id: 402, src: exampleImage9 },
-            { id: 403, src: exampleImage10 }
-          ],
-          caption: "A day of museum hopping and street food adventures in Manhattan."
-        },
-        {
-          id: 5,
-          photos: [
-            { id: 501, src: exampleImage11 },
-            { id: 502, src: exampleImage12 }
-          ],
-          caption: "Evening walk through Central Park as the city lights began to twinkle."
-        }
-      ]
-    },
-    {
-      id: 4,
-      title: "Home Holidays",
-      date: "December 25th, 2024",
-      photoGroups: [
-        {
-          id: 6,
-          photos: [
-            { id: 601, src: exampleImage1 },
-            { id: 602, src: exampleImage3 },
-            { id: 603, src: exampleImage5 },
-            { id: 604, src: exampleImage7 }
-          ],
-          caption: "Festive dinner with the family, featuring traditional recipes passed down through generations."
-        }
-      ]
+        setInitialized(true);
+      } catch (error) {
+        console.error("Error loading journal entries:", error);
+        setEntries(hardcodeEntries);
+        setInitialized(true);
+      }
+    };
+    
+    loadEntries();
+  }, []);
+  
+  useEffect(() => {
+    if (initialized && location.state?.newEntry) {
+      const newEntry = location.state.newEntry;
+      const entryExists = entries.some(entry => entry.id === newEntry.id);
+      
+      if (!entryExists) {
+        const updatedEntries = [newEntry, ...entries];
+        setEntries(updatedEntries);
+        localStorage.setItem('journalEntries', JSON.stringify(updatedEntries));
+      }
+
+      window.history.replaceState({}, document.title);
     }
-  ];
+  }, [location.state, entries, initialized]);
 
   const handleEntryClick = (entry) => {
     navigate('/timeframe', { 
@@ -137,7 +177,7 @@ function JournalEntries() {
           {entries.map(entry => (
             <div 
               key={entry.id} 
-              className="journal-entry-box"
+              className={"journal-entry-box"}
               onClick={() => handleEntryClick(entry)}
             >
               <div className="entry-info">

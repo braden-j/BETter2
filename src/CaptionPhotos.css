@@ -141,6 +141,34 @@
   font-size: 1.2rem;
 }
 
+.journal-title-input-container {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.title-label {
+  display: block;
+  margin-bottom: 8px;
+  color: #e5c8b3;
+  font-weight: 500;
+}
+
+.title-input {
+  width: 100%;
+  padding: 12px;
+  background-color: #5a5048;
+  border: 1px solid #786c64;
+  border-radius: 8px;
+  color: #e5c8b3;
+  font-size: 1rem;
+}
+
+.title-input:focus {
+  outline: none;
+  border-color: #e5c8b3;
+  box-shadow: 0 0 0 2px rgba(229, 200, 179, 0.2);
+}
+
 /* Mobile-specific adjustments */
 @media (max-width: 480px) {
   .group-photos {
