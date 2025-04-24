@@ -114,15 +114,11 @@ function JournalEntries() {
   };
 
   const handleCreateNew = () => {
-    navigate('/select-photos');
+    navigate('/photo-upload');
   };
 
   const handleBack = () => {
     navigate('/');
-  };
-
-  const handleNext = () => {
-    navigate('/select-photos');
   };
 
   const handleSaveExit = () => {
@@ -176,8 +172,7 @@ function JournalEntries() {
       </div>
 
       <BottomNav 
-        onNextClick={handleNext} 
-        nextLabel="Create New Journal"
+        showNextButton={false}
         showUtilityButtons={true}
       />
     </div>

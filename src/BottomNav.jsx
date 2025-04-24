@@ -4,7 +4,7 @@ import './BottomNav.css';
 import bookIcon from './assets/BookIcon.png';
 import pencilIcon from './assets/PencilIcon.png';
 import userIcon from './assets/UserIcon.png';
-import nextIcon from './assets/arrow.png'; // Arrow icon for next button
+import nextIcon from './assets/arrow.png';
 
 function BottomNav({ onNextClick, nextLabel = 'Next', showUtilityButtons = true, showNextButton = true }) {
   return (

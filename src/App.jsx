@@ -14,7 +14,7 @@ function App() {
       <div className="app-container">
         <main className="app-main">
           <Routes>
-            <Route path="/" element={<Navigate to="/journal-upload" replace />} />
+            <Route path="/" element={<Navigate to="/journal-entries" replace />} />
             <Route path="/journal-upload" element={<JournalUpload />} />
             <Route path="/photo-upload" element={<PhotoUpload />} />
             <Route path="/group-photos" element={<GroupPhotos />} />
