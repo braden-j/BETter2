@@ -7,12 +7,14 @@ function TopNav({ title, date, onBackClick, showBack = true }) {
 
   return (
     <div className="top-nav">
-      <div className="timeframe">
-        <h3>{title}</h3>
-        <div className="date">{date}</div>
-      </div>
-      <div className="nav-buttons"> 
+      <div className="back-button">
         {showBack && (<button onClick={onBackClick}>Back</button>)}
+      </div>
+      <div className="title">
+        <h3>{title}</h3>
+      </div>
+      <div className="date-display">
+        {date}
       </div>
     </div>
   );

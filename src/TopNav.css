@@ -1,44 +1,45 @@
 .top-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 10px 0;
-    margin-bottom: 15px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px 0;
+  margin-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
 
-  .timeframe {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .timeframe h3 {
-    margin: 0;
-    font-size: 1rem;
-    font-weight: bold;
-    color: #eee7e3;
-  }
-  
-  .top-nav .date {
-    font-size: 1.1rem;
-    font-weight: normal;
-  }
-  
-  .nav-buttons {
-    display: flex;
-    gap: 8px;
-  }
-  
-  .nav-buttons button {
-    background-color: #6b5f57;
-    color: #e5c8b3;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 20px;
-    padding: 8px 15px;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    font-family: 'Courgette', cursive;
-  }
-  
+.back-button {
+  flex: 1;
+}
+
+.title {
+  flex: 1;
+  text-align: center;
+}
+
+.title h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #eee7e3;
+}
+
+.date-display {
+  flex: 1;
+  text-align: right;
+  font-size: 1.1rem;
+  font-weight: normal;
+  color: #e5c8b3;
+}
+
+.back-button button {
+  background-color: #6b5f57;
+  color: #e5c8b3;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  padding: 8px 15px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Courgette', cursive;
+}

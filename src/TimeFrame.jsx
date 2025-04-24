@@ -46,7 +46,7 @@ function TimeFrame() {
     <div className="timeframe-container">
       <TopNav 
         title="TimeFrame" 
-        date={journalDate}
+        date="March 23rd"
         onBackClick={handleBack}
       />
       
