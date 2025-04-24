@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import TopNav from './TopNav';
+import BottomNav from './BottomNav';
 import './CaptionPhotos.css';
 
 function CaptionPhotos() {
@@ -120,78 +121,84 @@ function CaptionPhotos() {
 
   return (
     <div className="caption-groups-container">
-      <TopNav 
-        title="TimeFrame" 
-        date="March 23rd"
-        onBackClick={handleBack}
-      />
-      
-      <div className="caption-header">
-        <h2 className="title">Caption Your Groups</h2>
-        <div className="group-progress">
-          Group {currGroup + 1} of {groups.length}
+      <div className="content-area">
+        <TopNav 
+          title="TimeFrame" 
+          date="March 23rd"
+          onBackClick={handleBack}
+        />
+        <div className="caption-header">
+          <h2 className="title">Caption Your Groups</h2>
+          <div className="group-progress">
+            Group {currGroup + 1} of {groups.length}
+          </div>
         </div>
-      </div>
-      
-      <div className="caption-content">
-        {isLastGroup && (
-          <div className="journal-title-input-container">
-            <label htmlFor="journal-title" className="title-label">
-              Journal Title:
+        
+        <div className="caption-content">
+          {isLastGroup && (
+            <div className="journal-title-input-container">
+              <label htmlFor="journal-title" className="title-label">
+                Journal Title:
+              </label>
+              <input
+                id="journal-title"
+                value={journalTitle}
+                onChange={(e) => setJournalTitle(e.target.value)}
+                placeholder="Enter a title for this journal"
+                className="title-input"
+              />
+            </div>
+          )}
+          
+          <div className="group-preview">
+            <div className="group-photos">
+              {currentGroup.photos.map(photo => (
+                <div key={photo.id} className="caption-photo-item">
+                  <img 
+                    src={photo.src} 
+                    alt="Group photo" 
+                    className="caption-photo"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          <div className="caption-input-container">
+            <label htmlFor="group-caption" className="caption-label">
+              Add a caption for this group:
             </label>
-            <input
-              id="journal-title"
-              value={journalTitle}
-              onChange={(e) => setJournalTitle(e.target.value)}
-              placeholder="Enter a title for this journal"
-              className="title-input"
+            <textarea
+              id="group-caption"
+              value={caption}
+              onChange={handleCaptionChange}
+              placeholder="Enter a meaningful caption..."
+              className="caption-input"
             />
           </div>
-        )}
-        
-        <div className="group-preview">
-          <div className="group-photos">
-            {currentGroup.photos.map(photo => (
-              <div key={photo.id} className="caption-photo-item">
-                <img 
-                  src={photo.src} 
-                  alt="Group photo" 
-                  className="caption-photo"
-                />
-              </div>
-            ))}
-          </div>
         </div>
         
-        <div className="caption-input-container">
-          <label htmlFor="group-caption" className="caption-label">
-            Add a caption for this group:
-          </label>
-          <textarea
-            id="group-caption"
-            value={caption}
-            onChange={handleCaptionChange}
-            placeholder="Enter a meaningful caption..."
-            className="caption-input"
-          />
+        <div className="caption-navigation">
+          <button 
+            className="caption-nav-button back"
+            onClick={handlePrev}
+            disabled={currGroup === 0}
+          >
+            Previous
+          </button>
+          <button 
+            className="caption-nav-button next"
+            onClick={handleNext}
+          >
+            {isLastGroup ? "Finish" : "Next"}
+          </button>
         </div>
       </div>
-      
-      <div className="caption-navigation">
-        <button 
-          className="caption-nav-button back"
-          onClick={handlePrev}
-          disabled={currGroup === 0}
-        >
-          Previous
-        </button>
-        <button 
-          className="caption-nav-button next"
-          onClick={handleNext}
-        >
-          {isLastGroup ? "Finish" : "Next"}
-        </button>
-      </div>
+
+      <BottomNav 
+        showNextButton={false}
+        showUtilityButtons={true}
+      />
     </div>
   );
 }

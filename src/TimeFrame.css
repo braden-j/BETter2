@@ -1,13 +1,16 @@
-.timeframe-container {
-    padding: 1rem;
-    background-color: #47403A;
-    color: #eee7e3;
-    min-height: 100vh;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-  }
+.caption-groups-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content-area {
+  flex: 1;
+  padding: 1rem;
+  background-color: #47403A;
+  color: #eee7e3;
+  overflow-y: auto;
+}
   
   .timeframe-header {
     display: flex;

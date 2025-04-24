@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import TopNav from './TopNav';
+import BottomNav from './BottomNav';
 import './TimeFrame.css';
 
 function TimeFrame() {
@@ -44,57 +45,63 @@ function TimeFrame() {
 
   return (
     <div className="timeframe-container">
-      <TopNav 
-        title="TimeFrame" 
-        date="March 23rd"
-        onBackClick={handleBack}
-      />
-      
-      <div className="timeframe-header">
-        <h2 className="timeframe-title">{journalTitle}</h2>
-        <div className="group-progress">
-          Group {currGroup + 1} of {groups.length}
-        </div>
-      </div>
-      
-      <div className="timeframe-content">
-        <div className="group-preview">
-          <div className="group-photos">
-            {currentGroup.photos.map(photo => (
-              <div key={photo.id} className="caption-photo-item">
-                <img 
-                  src={photo.src} 
-                  alt="Group photo" 
-                  className="caption-photo"
-                />
-              </div>
-            ))}
+      <div className="content-area">
+        <TopNav 
+          title="TimeFrame" 
+          date="March 23rd"
+          onBackClick={handleBack}
+        />
+        <div className="timeframe-header">
+          <h2 className="timeframe-title">{journalTitle}</h2>
+          <div className="group-progress">
+            Group {currGroup + 1} of {groups.length}
           </div>
         </div>
         
-        <div className="caption-input-container">
-          <div className="caption-input" style={{ height: 'auto', paddingTop: '12px' }}>
-            {groupCaption}
+        <div className="timeframe-content">
+          <div className="group-preview">
+            <div className="group-photos">
+              {currentGroup.photos.map(photo => (
+                <div key={photo.id} className="caption-photo-item">
+                  <img 
+                    src={photo.src} 
+                    alt="Group photo" 
+                    className="caption-photo"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          <div className="caption-input-container">
+            <div className="caption-input" style={{ height: 'auto', paddingTop: '12px' }}>
+              {groupCaption}
+            </div>
           </div>
         </div>
+        
+        <div className="caption-navigation">
+          <button 
+            className="caption-nav-button back"
+            onClick={handlePrev}
+            disabled={currGroup === 0}
+          >
+            Previous
+          </button>
+          <button 
+            className="caption-nav-button next"
+            onClick={handleNext}
+            disabled={currGroup === groups.length - 1}
+          >
+            Next
+          </button>
+        </div>
       </div>
-      
-      <div className="caption-navigation">
-        <button 
-          className="caption-nav-button back"
-          onClick={handlePrev}
-          disabled={currGroup === 0}
-        >
-          Previous
-        </button>
-        <button 
-          className="caption-nav-button next"
-          onClick={handleNext}
-          disabled={currGroup === groups.length - 1}
-        >
-          Next
-        </button>
-      </div>
+
+      <BottomNav 
+        showNextButton={false}
+        showUtilityButtons={true}
+      />
     </div>
   );
 }
