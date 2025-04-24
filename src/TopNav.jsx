@@ -8,7 +8,12 @@ function TopNav({ title, date, onBackClick, showBack = true }) {
   return (
     <div className="top-nav">
       <div className="back-button">
-        {showBack && (<button onClick={onBackClick}>Back</button>)}
+        <button 
+          onClick={onBackClick} 
+          style={{ visibility: showBack ? 'visible' : 'hidden' }}
+        >
+          Back
+        </button>
       </div>
       <div className="title">
         <h3>{title}</h3>
