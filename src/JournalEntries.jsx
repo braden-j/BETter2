@@ -4,7 +4,6 @@ import TopNav from './TopNav';
 import BottomNav from './BottomNav';
 import './JournalEntries.css';
 
-// Import the example images
 import exampleImage1 from './assets/Screenshot 2025-04-07 092724.png';
 import exampleImage2 from './assets/Screenshot 2025-04-07 092743.png';
 import exampleImage3 from './assets/Screenshot 2025-04-07 092755.png';
@@ -21,7 +20,6 @@ import exampleImage12 from './assets/Screenshot 2025-04-09 182852.png';
 function JournalEntries() {
   const navigate = useNavigate();
   
-  // Sample data using the imported images - captions remain in data but won't be displayed
   const entries = [
     {
       id: 1,
