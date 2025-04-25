@@ -57,6 +57,11 @@ function Generate() {
             </button>
           </div>
         </div>
+
+        <BottomNav 
+          showNextButton={false}
+          showUtilityButtons={true}
+        />
       </div>
     );
   }
