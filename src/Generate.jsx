@@ -21,7 +21,7 @@ function Generate() {
           });
         });
     
-        navigate('/group-photos', {
+        navigate('/journal-entries', {
           state: {
             selectedImages: allPhotos,
             photoGroups: photoGroups
