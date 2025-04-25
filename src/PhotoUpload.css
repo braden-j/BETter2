@@ -3,8 +3,8 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  background-color: #47403A;
-  color: #eee7e3;
+  background-color: #FFFFFF;
+  color: #000000;
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
@@ -24,6 +24,7 @@
   margin-bottom: 20px;
   align-self: flex-start;
   font-weight: 600;
+  color: #000000;
 }
 
 .image-gallery {
@@ -48,7 +49,7 @@
 }
 
 .gallery-item.selected {
-  border: 3px solid #e5c8b3;
+  border: 3px solid #35507D;
 }
 
 .gallery-image {
@@ -63,8 +64,8 @@
   right: 10px;
   width: 24px;
   height: 24px;
-  background-color: #e5c8b3;
-  color: #eee7e3;
+  background-color: #35507D;
+  color: #FFFFFF;
   border-radius: 50%;
   display: flex;
   align-items: center;

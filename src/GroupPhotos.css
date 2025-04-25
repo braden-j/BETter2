@@ -1,7 +1,7 @@
 .selected-photos-container {
   padding: 1rem;
-  background-color: #47403A;
-  color: #eee7e3;
+  background-color: #FFFFFF;
+  color: #000000;
   min-height: 100vh;
   box-sizing: border-box;
   display: flex;
@@ -19,13 +19,13 @@
 .group-title {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #eee7e3;
+  color: #000000;
   text-align: center;
   margin: 0;
 }
 
 .selection-instructions {
-  background-color: rgba(229, 200, 179, 0.2);
+  background-color: rgba(53, 80, 125, 0.1);
   border-radius: 8px;
   padding: 12px;
   margin-bottom: 16px;
@@ -35,12 +35,12 @@
 .selection-instructions p {
   margin: 0;
   font-size: 0.9rem;
-  color: #e5c8b3;
+  color: #35507D;
 }
 
 .group-action-button {
-  background-color: #e5c8b3;
-  color: #47403A;
+  background-color: #35507D;
+  color: #FFFFFF;
   border: none;
   border-radius: 20px;
   padding: 8px 16px;
@@ -51,24 +51,25 @@
 }
 
 .group-action-button:hover {
-  background-color: #d9b9a0;
+  background-color: #889ABA;
 }
 
 .group-action-button:disabled {
-  background-color: #a8948a;
+  background-color: #D2E2F1;
+  color: #889ABA;
   cursor: not-allowed;
 }
 
 .group-action-button.cancel {
   background-color: transparent;
-  border: 1px solid #e5c8b3;
-  color: #e5c8b3;
+  border: 1px solid #35507D;
+  color: #35507D;
   margin-right: 10px;
 }
 
 .group-action-button.confirm {
-  background-color: #e5c8b3;
-  color: #47403A;
+  background-color: #35507D;
+  color: #FFFFFF;
 }
 
 .grouping-actions {
@@ -104,7 +105,7 @@
 }
 
 .gallery-item.selected {
-  border: 2px solid #e5c8b3;
+  border: 2px solid #35507D;
 }
 
 .gallery-image {
@@ -119,8 +120,8 @@
   right: 10px;
   width: 24px;
   height: 24px;
-  background-color: #e5c8b3;
-  color: #47403A;
+  background-color: #35507D;
+  color: #FFFFFF;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -137,11 +138,11 @@
   font-size: 1.2rem;
   margin-bottom: 12px;
   font-weight: 600;
-  color: #eee7e3;
+  color: #000000;
 }
 
 .photo-group {
-  background-color: #6b5f57;
+  background-color: #889ABA;
   border-radius: 12px;
   padding: 16px;
   margin-bottom: 16px;
@@ -156,8 +157,8 @@
 
 .group-button {
   background-color: transparent;
-  border: 1px solid #e5c8b3;
-  color: #e5c8b3;
+  border: 1px solid #35507D;
+  color: #35507D;
   border-radius: 16px;
   padding: 4px 10px;
   font-size: 0.8rem;
@@ -176,8 +177,8 @@
   right: 5px;
   width: 22px;
   height: 22px;
-  background-color: #e5c8b3;
-  color: #47403A;
+  background-color: #35507D;
+  color: #FFFFFF;
   border: none;
   border-radius: 50%;
   display: flex;
@@ -195,28 +196,28 @@
     flex-direction: column;
     align-items: flex-start;
   }
-  
+
   .nav-buttons {
     margin-top: 10px;
     align-self: flex-end;
   }
-  
+
   .image-gallery {
     gap: 8px;
   }
-  
+
   .gallery-item {
     border-radius: 8px;
   }
-  
+
   .title {
     font-size: 1.3rem;
   }
-  
+
   .group-images {
     grid-template-columns: repeat(3, 1fr);
   }
-  
+
   .group-action-button {
     padding: 6px 12px;
     font-size: 0.8rem;
@@ -228,11 +229,11 @@
     flex-direction: column;
     align-items: flex-start;
   }
-  
+
   .group-action-button {
     margin-top: 10px;
   }
-  
+
   .group-images {
     grid-template-columns: repeat(2, 1fr);
   }

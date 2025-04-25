@@ -6,8 +6,8 @@
 
 body {
   font-family: 'Quicksand', sans-serif;
-  color: #eee7e3;
-  background-color: #47403A;
+  color: #000000;
+  background-color: #FFFFFF;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow: hidden;
@@ -20,6 +20,7 @@ body {
   width: 100vw;
   max-width: 100%;
   overflow: hidden;
+  padding-top: 60px;
 }
 
 .app-header {
@@ -27,8 +28,8 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 12px 16px;
-  background-color: #2a2438;
-  color: white;
+  background-color: #35507D;
+  color: #FFFFFF;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -47,7 +48,7 @@ body {
 
 .app-nav a {
   text-decoration: none;
-  color: white;
+  color: #FFFFFF;
   font-weight: 500;
   font-size: 0.9rem;
   padding: 5px 0;
@@ -55,7 +56,7 @@ body {
 }
 
 .app-nav a:hover {
-  color: #646cff;
+  color: #D2E2F1;
 }
 
 .app-nav a:after {
@@ -63,7 +64,7 @@ body {
   position: absolute;
   width: 0;
   height: 2px;
-  background: #646cff;
+  background: #D2E2F1;
   bottom: 0;
   left: 0;
   transition: width 0.3s ease;
@@ -76,7 +77,7 @@ body {
 .app-main {
   flex-grow: 1;
   overflow-y: auto;
-  background-color: #f5f5f5;
+  background-color: #FFFFFF;
   position: relative;
 }
 
@@ -91,13 +92,13 @@ body {
 
 .home-page h2 {
   font-size: 1.8rem;
-  color: #333;
+  color: #35507D;
   margin-bottom: 15px;
 }
 
 .home-page p {
   font-size: 1rem;
-  color: #666;
+  color: #000000;
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.5;
@@ -116,15 +117,15 @@ body {
   .app-header {
     padding: 10px 12px;
   }
-  
+
   .app-header h1 {
     font-size: 1.1rem;
   }
-  
+
   .app-nav ul {
     gap: 10px;
   }
-  
+
   .app-nav a {
     font-size: 0.8rem;
   }
@@ -132,5 +133,5 @@ body {
 
 .courgette {
   font-family: 'Courgette', cursive;
-  color: #E5C8B3; 
+  color: #35507D;
 }
