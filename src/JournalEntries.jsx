@@ -153,7 +153,7 @@ function JournalEntries() {
     });
   };
 
-  const handleCreateNew = () => {
+  const handleNext = () => {
     navigate('/photo-upload');
   };
 
@@ -168,9 +168,6 @@ function JournalEntries() {
         
         <div className="journal-entries-header">
           <h2 className="title">Your Journals</h2>
-          <button className="new-entry-button" onClick={handleCreateNew}>
-            Create New
-          </button>
         </div>
         
         <div className="journal-entries-list">
@@ -203,7 +200,8 @@ function JournalEntries() {
       </div>
 
       <BottomNav 
-        showNextButton={false}
+        onNextClick={handleNext}
+        nextLabel="Add Entry"
         showUtilityButtons={true}
       />
     </div>

@@ -12,7 +12,7 @@ function BottomNav({ onNextClick, nextLabel = 'Next', showUtilityButtons = true,
 
   const handleBookClick = () => navigate('/journal-entries');
   const handlePencilClick = () => navigate('/photo-upload');
-  const handleUserClick = () => navigate('/user');
+  const handleUserClick = () => navigate('/generate');
 
   return (
     <div className="bottom-nav">
