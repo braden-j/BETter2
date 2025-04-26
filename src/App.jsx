@@ -7,6 +7,7 @@ import TimeFrame from './TimeFrame';
 import Generate from './Generate';
 import JournalEntries from './JournalEntries';
 import JournalSelection from './JournalSelection';
+import JournalEntry from './JournalEntry';
 import './App.css';
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
             <Route path="/generate" element={<Generate />} />
             <Route path="/timeframe" element={<TimeFrame />} />
             <Route path="/journal-entries" element={<JournalEntries />} />
+            <Route path="/journal-entry" element={<JournalEntry />} />
             <Route path="/journal-selection" element={<JournalSelection />} />
           </Routes>
         </main>

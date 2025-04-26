@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import TopNav from './TopNav';
 import BottomNav from './BottomNav';
 import './JournalSelection.css';
-import hardcodeEntries from './hardcodeData';
+import { hardcodeEntries, timeframe } from './hardcodeData';
 
 function JournalSelection() {
   const navigate = useNavigate();
@@ -47,27 +47,9 @@ function JournalSelection() {
   };
 
   // Hardcoded TimeFrame right now, needs to be fixed to use AI
+  // Just sends hardcoded TimeFrame right now
   const handleContinue = () => {
-    const allPhotoGroups = [];
-    const titles = [];
-    const dates = [];
-    
-    selectedEntries.forEach(entry => {
-      entry.photoGroups.forEach(group => {
-        allPhotoGroups.push(group);
-      });
-      
-      titles.push(entry.title);
-      dates.push(entry.date);
-    });
-    
-    navigate('/timeframe', { 
-      state: { 
-        photoGroups: allPhotoGroups,
-        title: 'New TimeFrame',
-        date: dates.join(', ') 
-      } 
-    });
+    navigate('/timeframe', { state: timeframe });
   };
 
 

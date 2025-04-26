@@ -7,8 +7,6 @@ import './TimeFrame.css';
 function TimeFrame() {
   const location = useLocation();
   const groupedPhotos = location.state?.photoGroups || [];
-  const journalTitle = location.state?.title || "TimeFrame";
-  const journalDate = location.state?.date || "March 23rd";
   const navigate = useNavigate();
 
   const [groups, setGroups] = useState([]);
@@ -42,16 +40,17 @@ function TimeFrame() {
   
   const currentGroup = groups[currGroup];
   const groupCaption = currentGroup.caption || "No caption available for this group of photos.";
+  const groupTitle = currentGroup.title || `Group ${currGroup + 1}`;
 
   return (
     <div className="timeframe-container">
       <div className="content-area">
         <TopNav 
-          title="TimeFrame" 
+          title="TimeFrame"
           onBackClick={handleBack}
         />
         <div className="timeframe-header">
-          <h2 className="timeframe-title">{journalTitle}</h2>
+          <h2 className="timeframe-title">{groupTitle}</h2>
           <div className="group-progress">
             Group {currGroup + 1} of {groups.length}
           </div>
@@ -64,7 +63,7 @@ function TimeFrame() {
                 <div key={photo.id} className="caption-photo-item">
                   <img 
                     src={photo.src} 
-                    alt="Group photo" 
+                    alt={`Photo from ${groupTitle}`}
                     className="caption-photo"
                   />
                 </div>

@@ -3,7 +3,8 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import TopNav from './TopNav';
 import BottomNav from './BottomNav';
 import './JournalEntries.css';
-import hardcodeEntries from './hardcodeData';
+import { hardcodeEntries } from './hardcodeData';
+
 
 function JournalEntries() {
   const navigate = useNavigate();
@@ -61,7 +62,7 @@ function JournalEntries() {
   }, [location.state, initialized]);  
 
   const handleEntryClick = (entry) => {
-    navigate('/timeframe', { 
+    navigate('/journal-entry', { 
       state: { 
         photoGroups: entry.photoGroups,
         title: entry.title,

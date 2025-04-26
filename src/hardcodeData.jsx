@@ -245,6 +245,41 @@ const hardcodeEntries = [
   }
 ];
 
+const timeframe =
+  {
+    id: 1,
+    title: "TimeFrame",
+    photoGroups: [
+      {
+        id: 1,
+        title: "Food",
+        photos: [
+          { id: 101, src: Monday3 },
+          { id: 102, src: Monday4 }
+        ],
+        caption: ""
+      },
+      {
+        id: 2,
+        title: "Studying", 
+        photos: [
+          { id: 201, src: Monday5 },
+          { id: 202, src: Monday6 }
+        ],
+        caption: ""
+      },
+      {
+        id: 3,
+        title: "Friends",
+        photos: [
+            { id: 301, src: Monday1 },
+            { id: 302, src: Monday2 }
+        ],
+        caption: ""
+      }
+    ]
+  };
+
 //   {   
 //     id: ,
 //     title: "",
@@ -260,4 +295,4 @@ const hardcodeEntries = [
 //     ]
 //   }
 
-export default hardcodeEntries;
+export { hardcodeEntries, timeframe };
