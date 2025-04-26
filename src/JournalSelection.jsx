@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import TopNav from './TopNav';
 import BottomNav from './BottomNav';
 import './JournalSelection.css';
-import { hardcodeEntries, timeframe } from './hardcodeData';
+import { hardcodeEntries, timeframe, timeframe2 } from './hardcodeData';
 
 function JournalSelection() {
   const navigate = useNavigate();
@@ -49,9 +49,8 @@ function JournalSelection() {
   // Hardcoded TimeFrame right now, needs to be fixed to use AI
   // Just sends hardcoded TimeFrame right now
   const handleContinue = () => {
-    navigate('/timeframe', { state: timeframe });
+    navigate('/timeframe', { state: { timeframeData: timeframe2 } });
   };
-
 
   const isEntrySelected = (entryId) => {
     return selectedEntries.some(entry => entry.id === entryId);

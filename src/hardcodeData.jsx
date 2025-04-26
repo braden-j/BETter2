@@ -252,7 +252,7 @@ const timeframe =
     photoGroups: [
       {
         id: 1,
-        title: "Food",
+        title: "Friends",
         photos: [
           { id: 101, src: Monday3 },
           { id: 102, src: Monday4 }
@@ -264,21 +264,85 @@ const timeframe =
         title: "Studying", 
         photos: [
           { id: 201, src: Monday5 },
-          { id: 202, src: Monday6 }
+          { id: 203, src: Saturday2 },
+          { id: 204, src: Saturday3 },
+          { id: 205, src: Thursday6 },
+          { id: 207, src: Tuesday2 },
+          { id: 209, src: Tuesday1 },
+          { id: 210, src: Wednesday5 },
+          { id: 211, src: Wednesday7 },
         ],
-        caption: ""
-      },
-      {
-        id: 3,
-        title: "Friends",
-        photos: [
-            { id: 301, src: Monday1 },
-            { id: 302, src: Monday2 }
-        ],
-        caption: ""
+        caption: `This week, you logged major academic miles: six classes, two project deadlines, and one emergency GitHub session solved on a pool table. From trying to emotionally project by standing still in Acting class, to wrestling with NP-complete problems in Algorithms, you pushed through every wall — literal and mental.
+                You built UI mockups for HCI, debated fairness frameworks from the '90s, and somehow kept your brain tethered through endless whiteboard battles.
+                Late nights, study campouts, emergency lap breaks around Huntsman — all just part of the grind.`
       }
     ]
   };
+
+  const timeframe2 =
+  {
+    id: 1,
+    title: "TimeFrame",
+    groups: [
+      {
+        id: 1,
+        title: "Messy Progress Is Still Progress", 
+        summary: `This week, you logged major academic miles: six classes, two project deadlines, and one emergency GitHub session solved on a pool table. From trying to emotionally project by standing still in Acting class, to wrestling with NP-complete problems in Algorithms, you pushed through every wall — literal and mental.
+                You built UI mockups for HCI, debated fairness frameworks from the '90s, and somehow kept your brain tethered through endless whiteboard battles.
+                Late nights, study campouts, emergency lap breaks around Huntsman — all just part of the grind.`,
+        photoGroups: [
+          {
+            id: 1,
+            photos: [
+              { id: 210, src: Wednesday5 },
+              { id: 211, src: Wednesday4 },
+            ],
+            caption: "Turning Braden’s pool table into a makeshift GitHub headquarters"
+          },
+          {
+            id: 2,
+            photos: [
+              { id: 205, src: Thursday6 },
+              { id: 206, src: Thursday7 }
+            ],
+            caption: "Unlocking Question 3 on the CS Algorithms homework with Alan and Connor"
+          },
+          {
+            id: 3,
+            photos: [
+              { id: 213, src: Tuesday1 }
+            ],
+            caption: "Editing your weather app UI for way too many hours (but hey, it’s portfolio-ready now)"
+          }
+        ]
+      },
+      {
+        id: 2,
+        title: "Powered by Friends (and Free Ice Cream)", 
+        summary: `Forget the coursework — the real highlight reel was stitched together by the people you spent it with. You managed to see or talk with 11 different friends this week, making friendship your unofficial full-time job.
+                  Your most frequent friends were Nikita (studying, Barcelona wine night, life talks) and Siri (free ice cream, mental untangling sessions). Between sidewalk debates, late-night snack runs, outdoor lunches, and tea-fueled deep talks, you packed your days with the good stuff — the kind that doesn’t show up on syllabi but makes everything else worth it. `,
+        photoGroups: [
+          {
+            id: 1,
+            photos: [
+              { id: 210, src: Wednesday5 },
+              { id: 211, src: Wednesday4 },
+            ],
+            caption: "Free Ben & Jerry’s surprise with Siri (Cherry Garcia, of course)"
+          },
+          {
+            id: 2,
+            photos: [
+              { id: 205, src: Thursday6 },
+              { id: 206, src: Thursday7 }
+            ],
+            caption: "Birthday dinner glow with Hita downtown"
+          }
+        ]
+      }
+    ]
+  };
+
 
 //   {   
 //     id: ,
@@ -295,4 +359,4 @@ const timeframe =
 //     ]
 //   }
 
-export { hardcodeEntries, timeframe };
+export { hardcodeEntries, timeframe, timeframe2 };

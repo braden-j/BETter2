@@ -6,93 +6,82 @@ import './TimeFrame.css';
 
 function TimeFrame() {
   const location = useLocation();
-  const groupedPhotos = location.state?.photoGroups || [];
+  const timeframeData = location.state?.timeframeData || {};
   const navigate = useNavigate();
 
+  const [currentGroupIndex, setCurrentGroupIndex] = useState(0);
   const [groups, setGroups] = useState([]);
-  const [currGroup, setCurrGroup] = useState(0);
   
   useEffect(() => {
-    if (groupedPhotos.length > 0 && groups.length === 0) {
-      setGroups(groupedPhotos);
+    if (timeframeData.groups && timeframeData.groups.length > 0) {
+      setGroups(timeframeData.groups);
     }
-  }, [location.state, groups.length]);
+  }, [timeframeData]);
 
   const handleBack = () => {
     navigate('/journal-entries');
   };
 
-  const handleNext = () => {
-    if (currGroup < groups.length - 1) {
-      setCurrGroup(currGroup + 1);
+  const handleNextGroup = () => {
+    if (currentGroupIndex < groups.length - 1) {
+      setCurrentGroupIndex(currentGroupIndex + 1);
+      window.scrollTo(0, 0);
     }
   };
   
-  const handlePrev = () => {
-    if (currGroup > 0) {
-      setCurrGroup(currGroup - 1);
+  const handlePrevGroup = () => {
+    if (currentGroupIndex > 0) {
+      setCurrentGroupIndex(currentGroupIndex - 1);
+      window.scrollTo(0, 0);
     }
   };
   
   if (groups.length === 0) {
-    return <div className="caption-loading">Loading groups...</div>;
+    return <div className="caption-loading">Loading timeframe data...</div>;
   }
   
-  const currentGroup = groups[currGroup];
-  const groupCaption = currentGroup.caption || "No caption available for this group of photos.";
-  const groupTitle = currentGroup.title || `Group ${currGroup + 1}`;
+  const currentGroup = groups[currentGroupIndex];
 
   return (
     <div className="timeframe-container">
       <div className="content-area">
         <TopNav 
-          title="TimeFrame"
+          title={timeframeData.title || "TimeFrame"}
           onBackClick={handleBack}
         />
+        
         <div className="timeframe-header">
-          <h2 className="timeframe-title">{groupTitle}</h2>
-          <div className="group-progress">
-            Group {currGroup + 1} of {groups.length}
-          </div>
+          <h2 className="timeframe-title">{currentGroup.title}</h2>
         </div>
         
         <div className="timeframe-content">
-          <div className="group-preview">
-            <div className="group-photos">
-              {currentGroup.photos.map(photo => (
-                <div key={photo.id} className="caption-photo-item">
-                  <img 
-                    src={photo.src} 
-                    alt={`Photo from ${groupTitle}`}
-                    className="caption-photo"
-                  />
-                </div>
-              ))}
-            </div>
+          <div className="group-summary">
+            {currentGroup.summary}
           </div>
           
-          <div className="caption-input-container">
-            <div className="caption-input" style={{ height: 'auto', paddingTop: '12px' }}>
-              {groupCaption}
+          {currentGroup.photoGroups && currentGroup.photoGroups.map((photoGroup) => (
+            <div className="photo-group-container" key={photoGroup.id}>
+              <div className="group-preview">
+                <div className="group-photos">
+                  {photoGroup.photos.map(photo => (
+                    <div key={photo.id} className="caption-photo-item">
+                      <img 
+                        src={photo.src} 
+                        alt={`Photo ${photo.id}`}
+                        className="caption-photo"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+              
+              <div className="caption-input-container">
+                <div className="caption-input" style={{ height: 'auto', paddingTop: '12px' }}>
+                  {photoGroup.caption}
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        
-        <div className="caption-navigation">
-          <button 
-            className="caption-nav-button back"
-            onClick={handlePrev}
-            disabled={currGroup === 0}
-          >
-            Previous
-          </button>
-          <button 
-            className="caption-nav-button next"
-            onClick={handleNext}
-            disabled={currGroup === groups.length - 1}
-          >
-            Next
-          </button>
+          ))}
         </div>
       </div>
 
