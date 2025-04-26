@@ -4,22 +4,22 @@ import BottomNav from './BottomNav';
 import TopNav from './TopNav';
 import './PhotoUpload.css';
 
-import exampleImage1 from './assets/Screenshot 2025-04-07 092724.png';
-import exampleImage2 from './assets/Screenshot 2025-04-07 092743.png';
-import exampleImage3 from './assets/Screenshot 2025-04-07 092755.png';
-import exampleImage4 from './assets/Screenshot 2025-04-07 092808.png';
-import exampleImage5 from './assets/Screenshot 2025-04-07 092832.png';
-import exampleImage6 from './assets/Screenshot 2025-04-07 092844.png';
-import exampleImage7 from './assets/Screenshot 2025-04-09 143804.png';
-import exampleImage8 from './assets/Screenshot 2025-04-09 143830.png';
-import exampleImage9 from './assets/Screenshot 2025-04-09 143916.png';
-import exampleImage10 from './assets/Screenshot 2025-04-09 182810.png';
-import exampleImage11 from './assets/Screenshot 2025-04-09 182834.png';
-import exampleImage12 from './assets/Screenshot 2025-04-09 182852.png';
+import Sunday1 from './assets/Sunday/1.jpg';
+import Sunday2 from './assets/Sunday/2.jpg';
+import Sunday3 from './assets/Sunday/3.jpg';
+import Sunday4 from './assets/Sunday/4.jpg';
+import Sunday5 from './assets/Sunday/5.jpg';
+import Sunday6 from './assets/Sunday/6.jpeg';
+import Sunday7 from './assets/Sunday/7.jpeg';
+import Sunday8 from './assets/Sunday/8.png';
+import Sunday9 from './assets/Sunday/9.png';
+import Sunday10 from './assets/Sunday/10.png';
+import Sunday11 from './assets/Sunday/11.png';
+import Sunday12 from './assets/Sunday/12.jpg';
 
 function PhotoUpload() {
     const [selectedImages, setSelectedImages] = useState([]);
-    const images = [exampleImage1, exampleImage2, exampleImage3, exampleImage4, exampleImage5, exampleImage6, exampleImage7, exampleImage8, exampleImage9, exampleImage10, exampleImage11, exampleImage12];
+    const images = [Sunday1, Sunday2, Sunday3, Sunday4, Sunday5, Sunday6, Sunday7, Sunday8, Sunday9, Sunday10, Sunday11, Sunday12];
     const navigate = useNavigate();
     
     const handleImageClick = (image) => {
