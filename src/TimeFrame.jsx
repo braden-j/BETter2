@@ -48,7 +48,6 @@ function TimeFrame() {
       <div className="content-area">
         <TopNav 
           title="TimeFrame" 
-          date="March 23rd"
           onBackClick={handleBack}
         />
         <div className="timeframe-header">

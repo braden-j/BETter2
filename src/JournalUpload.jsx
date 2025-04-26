@@ -19,7 +19,6 @@ function JournalUpload() {
 
         <TopNav 
           title="TimeFrame" 
-          date="March 23rd"
           showBack={false}
         />
 

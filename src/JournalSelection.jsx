@@ -80,7 +80,6 @@ function JournalSelection() {
       <div className="content-area">
         <TopNav 
           title="TimeFrame" 
-          date="March 23rd"
           showBack={true}
           onBackClick={handleBack}
         />

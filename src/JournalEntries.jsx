@@ -44,9 +44,10 @@ function JournalEntries() {
   useEffect(() => {
     if (initialized && location.state?.newEntry) {
       const newEntry = location.state.newEntry;
+
       setEntries(prevEntries => {
         const entryExists = prevEntries.some(entry => entry.id === newEntry.id);
-
+  
         if (!entryExists) {
           const updatedEntries = [newEntry, ...prevEntries];
           localStorage.setItem('journalEntries', JSON.stringify(updatedEntries));
@@ -54,11 +55,10 @@ function JournalEntries() {
         }
         return prevEntries;
       });
-
+  
       window.history.replaceState({}, document.title);
     }
-  }, [location.state, initialized]);
-
+  }, [location.state, initialized]);  
 
   const handleEntryClick = (entry) => {
     navigate('/timeframe', { 
@@ -79,7 +79,6 @@ function JournalEntries() {
       <div className="content-area">
         <TopNav 
           title="TimeFrame" 
-          date="March 23rd"
           showBack={false}
         />
         

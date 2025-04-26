@@ -44,7 +44,6 @@ function PhotoUpload() {
 
         <TopNav 
             title="TimeFrame" 
-            date="March 23rd"
             onBackClick={handleBack}
         />
 

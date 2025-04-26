@@ -114,7 +114,6 @@ function GroupPhotos() {
     <div className="selected-photos-container">
       <TopNav 
         title="TimeFrame" 
-        date="March 23rd"
         onBackClick={handleBack}
       />
 

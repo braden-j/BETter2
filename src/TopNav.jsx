@@ -1,7 +1,7 @@
 import React from 'react';
 import './TopNav.css';
 
-function TopNav({ title, date, onBackClick, showBack = true }) {
+function TopNav({ title, date = "April 26th", onBackClick, showBack = true }) {
   return (
     <div className="top-nav">
       <div className="back-button">
