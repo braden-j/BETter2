@@ -286,7 +286,7 @@ const timeframe =
     groups: [
       {
         id: 1,
-        title: "Messy Progress Is Still Progress", 
+        title: "You Got it Done!", 
         summary: `This week, you logged major academic miles: six classes, two project deadlines, and one emergency GitHub session solved on a pool table. From trying to emotionally project by standing still in Acting class, to wrestling with NP-complete problems in Algorithms, you pushed through every wall — literal and mental.
                 You built UI mockups for HCI, debated fairness frameworks from the '90s, and somehow kept your brain tethered through endless whiteboard battles.
                 Late nights, study campouts, emergency lap breaks around Huntsman — all just part of the grind.`,
