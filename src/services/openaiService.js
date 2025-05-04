@@ -58,7 +58,7 @@ export async function generateTimeFrameFromEntries(entries) {
 
   // Prompt all 3 generations in parallel
   const [title, summary, themesRaw] = await Promise.all([
-    callOpenAI(`Create a short and fun title summarizing this set of journal captions (they might not be from the same day):\n\n${textBlob}`),
+    callOpenAI(`Create a short and fun title summarizing this set of journal captions (they might not be from the same day), max 40 characters:\n\n${textBlob}`),
     callOpenAI(`Write a concise and thoughtful paragraph that captures the tone and highlights of the following journal captions (they might not be from the same day):\n\n${textBlob}`),
     callOpenAI(`From the following text:\n\n${textBlob}\n\nIdentify 4 to 8 themes. For each theme, generate a fun, short caption. Remember, this is a aggregated journal entry that might be from multiple days. Return your output as a JSON array with keys: "theme" and "caption".`)
   ]);
@@ -81,6 +81,7 @@ export async function generateTimeFrameFromEntries(entries) {
   console.log("Matched groups:", matchedGroups);
 
   return {
+    title: title.trim(),
     summary: summary.trim(),
     groups: matchedGroups
   };

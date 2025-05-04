@@ -46,17 +46,17 @@ function TimeFrame() {
     <div className="timeframe-container">
       <div className="content-area">
         <TopNav 
-          title={timeframeData.title || "TimeFrame"}
+          title={"TimeFrame"}
           onBackClick={handleBack}
         />
         
         <div className="timeframe-header">
-          <h2 className="timeframe-title">{currentGroup.title}</h2>
+          <h2 className="timeframe-title">{timeframeData.title}</h2>
         </div>
         
         <div className="timeframe-content">
           <div className="group-summary">
-            {currentGroup.summary}
+            {timeframeData.summary}
           </div>
           
           {currentGroup.photoGroups && currentGroup.photoGroups.map((photoGroup) => (
