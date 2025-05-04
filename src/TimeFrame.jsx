@@ -33,28 +33,23 @@ function TimeFrame() {
           onBackClick={handleBack}
         />
 
-        {/* Overall Timeframe Title */}
         <div className="timeframe-header">
           <h2 className="timeframe-title">{timeframeData.title}</h2>
         </div>
 
-        {/* Overall Summary */}
         <div className="timeframe-content">
           <div className="group-summary">
             {timeframeData.summary}
           </div>
 
-          {/* Theme-wise rendering */}
           {groups.map((group, groupIndex) => (
             <div key={groupIndex} className="theme-section" style={{ marginTop: '2rem' }}>
-              {/* Theme title and summary */}
               <div className="caption-input-container">
                 <div className="caption-input" style={{ height: 'auto', paddingTop: '12px', fontWeight: 'bold' }}>
                   {group.title}: <span style={{ fontWeight: 'normal' }}>{group.summary}</span>
                 </div>
               </div>
 
-              {/* Render all photo groups under this theme */}
               {group.photoGroups.map((photoGroup, groupIdx) => (
                 <div className="photo-group-container" key={photoGroup.id || groupIdx}>
                   <div className="group-preview">

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import TopNav from './TopNav';
 import BottomNav from './BottomNav';
 import './JournalSelection.css';
@@ -11,6 +11,7 @@ function JournalSelection() {
   const [entries, setEntries] = useState([]);
   const [selectedEntries, setSelectedEntries] = useState([]);
   const [loading, setLoading] = useState(false);
+  const bottomSpacerRef = useRef(null);
   
   useEffect(() => {
     const loadEntries = () => {
@@ -30,6 +31,20 @@ function JournalSelection() {
     };
     
     loadEntries();
+    
+    const updateSpacerHeight = () => {
+      const bottomNavHeight = document.querySelector('.bottom-nav')?.clientHeight || 70;
+      if (bottomSpacerRef.current) {
+        bottomSpacerRef.current.style.height = `${bottomNavHeight + 20}px`;
+      }
+    };
+
+    updateSpacerHeight();
+    window.addEventListener('resize', updateSpacerHeight);
+    
+    return () => {
+      window.removeEventListener('resize', updateSpacerHeight);
+    };
   }, []);
 
   const handleEntrySelect = (entry) => {
@@ -48,24 +63,8 @@ function JournalSelection() {
     navigate(-1);
   };
 
-  // Hardcoded TimeFrame right now, needs to be fixed to use AI
-  // Just sends hardcoded TimeFrame right now
-  /*const handleContinue = () => {
-    navigate('/timeframe', { state: { timeframeData: timeframe2 } });
-  };*/
-
-  /*const handleContinue = async () => {
-    try {
-      const timeframeData = await generateTimeFrameFromEntries(selectedEntries);
-      navigate('/timeframe', { state: { timeframeData } });
-    } catch (error) {
-      console.error("Failed to generate timeframe:", error);
-      alert("Something went wrong while generating your TimeFrame. Please try again.");
-    }
-  };  */
-
   const handleContinue = async () => {
-    setLoading(true); // show spinner
+    setLoading(true);
   
     try {
       const aiData = await generateTimeFrameFromEntries(selectedEntries);
@@ -133,6 +132,7 @@ function JournalSelection() {
               </div>
             </div>
           ))}
+          <div ref={bottomSpacerRef} className="bottom-spacer"></div>
         </div>
       </div>
 
@@ -141,7 +141,6 @@ function JournalSelection() {
           <p>Generating your TimeFrame… ✨</p>
         </div>
       )}
-
 
       <BottomNav 
         onNextClick={handleContinue}

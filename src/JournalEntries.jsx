@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import TopNav from './TopNav';
 import BottomNav from './BottomNav';
@@ -11,6 +11,7 @@ function JournalEntries() {
   const location = useLocation();
   const [entries, setEntries] = useState([]);
   const [initialized, setInitialized] = useState(false);
+  const bottomSpacerRef = useRef(null);
 
   // To clear local storage, uncomment this (make sure to comment back after so it doesn't continuously reset)
   // try {
@@ -40,6 +41,20 @@ function JournalEntries() {
     };
     
     loadEntries();
+    
+    const updateSpacerHeight = () => {
+      const bottomNavHeight = document.querySelector('.bottom-nav')?.clientHeight || 70;
+      if (bottomSpacerRef.current) {
+        bottomSpacerRef.current.style.height = `${bottomNavHeight + 20}px`;
+      }
+    };
+    
+    updateSpacerHeight();
+    window.addEventListener('resize', updateSpacerHeight);
+    
+    return () => {
+      window.removeEventListener('resize', updateSpacerHeight);
+    };
   }, []);
   
   useEffect(() => {
@@ -113,6 +128,7 @@ function JournalEntries() {
               </div>
             </div>
           ))}
+          <div ref={bottomSpacerRef} className="bottom-spacer"></div>
         </div>
       </div>
 
