@@ -9,9 +9,8 @@ function TimeFrame() {
   const timeframeData = location.state?.timeframeData || {};
   const navigate = useNavigate();
 
-  const [currentGroupIndex, setCurrentGroupIndex] = useState(0);
   const [groups, setGroups] = useState([]);
-  
+
   useEffect(() => {
     if (timeframeData.groups && timeframeData.groups.length > 0) {
       setGroups(timeframeData.groups);
@@ -22,25 +21,9 @@ function TimeFrame() {
     navigate('/journal-entries');
   };
 
-  const handleNextGroup = () => {
-    if (currentGroupIndex < groups.length - 1) {
-      setCurrentGroupIndex(currentGroupIndex + 1);
-      window.scrollTo(0, 0);
-    }
-  };
-  
-  const handlePrevGroup = () => {
-    if (currentGroupIndex > 0) {
-      setCurrentGroupIndex(currentGroupIndex - 1);
-      window.scrollTo(0, 0);
-    }
-  };
-  
   if (groups.length === 0) {
     return <div className="caption-loading">Loading timeframe data...</div>;
   }
-  
-  const currentGroup = groups[currentGroupIndex];
 
   return (
     <div className="timeframe-container">
@@ -49,37 +32,46 @@ function TimeFrame() {
           title={"TimeFrame"}
           onBackClick={handleBack}
         />
-        
+
+        {/* Overall Timeframe Title */}
         <div className="timeframe-header">
           <h2 className="timeframe-title">{timeframeData.title}</h2>
         </div>
-        
+
+        {/* Overall Summary */}
         <div className="timeframe-content">
           <div className="group-summary">
             {timeframeData.summary}
           </div>
-          
-          {currentGroup.photoGroups && currentGroup.photoGroups.map((photoGroup) => (
-            <div className="photo-group-container" key={photoGroup.id}>
-              <div className="group-preview">
-                <div className="group-photos">
-                  {photoGroup.photos.map(photo => (
-                    <div key={photo.id} className="caption-photo-item">
-                      <img 
-                        src={photo.src} 
-                        alt={`Photo ${photo.id}`}
-                        className="caption-photo"
-                      />
-                    </div>
-                  ))}
-                </div>
-              </div>
-              
+
+          {/* Theme-wise rendering */}
+          {groups.map((group, groupIndex) => (
+            <div key={groupIndex} className="theme-section" style={{ marginTop: '2rem' }}>
+              {/* Theme title and summary */}
               <div className="caption-input-container">
-                <div className="caption-input" style={{ height: 'auto', paddingTop: '12px' }}>
-                  {photoGroup.caption}
+                <div className="caption-input" style={{ height: 'auto', paddingTop: '12px', fontWeight: 'bold' }}>
+                  {group.title}: <span style={{ fontWeight: 'normal' }}>{group.summary}</span>
                 </div>
               </div>
+
+              {/* Render all photo groups under this theme */}
+              {group.photoGroups.map((photoGroup, groupIdx) => (
+                <div className="photo-group-container" key={photoGroup.id || groupIdx}>
+                  <div className="group-preview">
+                    <div className="group-photos">
+                      {photoGroup.photos.map(photo => (
+                        <div key={photo.id} className="caption-photo-item">
+                          <img 
+                            src={photo.src} 
+                            alt={`Photo ${photo.id}`} 
+                            className="caption-photo"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           ))}
         </div>
