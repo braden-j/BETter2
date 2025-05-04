@@ -13,7 +13,6 @@ function CaptionPhotos() {
   const [currGroup, setCurrGroup] = useState(0);
   const [caption, setCaption] = useState('');
   const [allCaptions, setAllCaptions] = useState({});
-  const [journalTitle, setJournalTitle] = useState(location.state?.title || 'New Journal');
   
   useEffect(() => {
     if (groupedPhotos.length > 0 && groups.length === 0) {
@@ -97,10 +96,12 @@ function CaptionPhotos() {
     const currentDate = new Date();
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     const formattedDate = currentDate.toLocaleDateString('en-US', options);
+    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const day = days[currentDate.getDay()];
     
     const newEntry = {
       id: Date.now(),
-      title: journalTitle,
+      title: day,
       date: formattedDate,
       photoGroups: updatedGroups
     };
@@ -134,21 +135,6 @@ function CaptionPhotos() {
         </div>
         
         <div className="caption-content">
-          {isLastGroup && (
-            <div className="journal-title-input-container">
-              <label htmlFor="journal-title" className="title-label">
-                Journal Title:
-              </label>
-              <input
-                id="journal-title"
-                value={journalTitle}
-                onChange={(e) => setJournalTitle(e.target.value)}
-                placeholder="Enter a title for this journal"
-                className="title-input"
-              />
-            </div>
-          )}
-          
           <div className="group-preview">
             <div className="group-photos">
               {currentGroup.photos.map(photo => (
