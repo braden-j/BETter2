@@ -90,6 +90,10 @@ function JournalEntries() {
     navigate('/photo-upload');
   };
 
+  const handleViewTimeFrames = () => {
+    navigate('/timeframe-entries');
+  };
+
   return (
     <div className="journal-entries-container">
       <div className="content-area">
@@ -98,8 +102,14 @@ function JournalEntries() {
           showBack={false}
         />
         
-        <div className="journal-entries-header">
-          <h2 className="title">Your Journals</h2>
+        <div className="photos-header">
+          <h2 className="group-title">Your Journals</h2>
+          <button 
+            className="group-action-button"
+            onClick={handleViewTimeFrames}
+          >
+            View TimeFrames
+          </button>
         </div>
         
         <div className="journal-entries-list">

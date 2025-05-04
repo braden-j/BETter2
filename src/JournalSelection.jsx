@@ -138,7 +138,7 @@ function JournalSelection() {
 
       {loading && (
         <div className="loading-overlay">
-          <p>Generating your TimeFrame… ✨</p>
+          <p>Generating your TimeFrame…</p>
         </div>
       )}
 

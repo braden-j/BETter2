@@ -62,7 +62,7 @@ function GroupPhotos() {
 
     setSelected([]);
     setIsGrouping(false);
-    setShowInstructions(true); // Show instructions again after group is created
+    setShowInstructions(true);
   };
   
   const removePhotoFromGroup = (groupId, photoId) => {

@@ -14,39 +14,34 @@
   overflow-y: auto;
 }
 
-.journal-entries-header {
+.photos-header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   margin-bottom: 24px;
-  padding-top: 12px;
 }
 
-.title {
+.group-title {
   font-size: 1.5rem;
   font-weight: 600;
   color: #000000;
-  text-align: center;
   margin: 0;
+  text-align: left;
 }
 
-.new-entry-button {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  z-index: 10;
+.group-action-button {
   background-color: #35507D;
   color: #FFFFFF;
   border: none;
-  border-radius: 24px;
-  padding: 10px 18px;
+  border-radius: 20px;
+  padding: 8px 16px;
   font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.2s;
 }
 
-.new-entry-button:hover {
+.group-action-button:hover {
   background-color: #889ABA;
 }
 
@@ -145,16 +140,19 @@
 }
 
 @media (max-width: 375px) {
+  .photos-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  
   .entry-photos-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .new-entry-button {
-    padding: 8px 14px;
-    font-size: 0.85rem;
-  }
-
-  .journal-entries-header {
-    margin-bottom: 16px;
+  .group-action-button {
+    padding: 6px 12px;
+    font-size: 0.8rem;
   }
 }

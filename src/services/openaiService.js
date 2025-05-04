@@ -28,15 +28,6 @@ async function callOpenAI(prompt) {
   }
 }
 
-/*// Helper to match photo groups to themes by caption keywords
-function matchPhotoGroupsToTheme(theme, photoGroups) {
-  const keyword = theme.toLowerCase();
-  return photoGroups
-    .filter(group => group.caption.toLowerCase().includes(keyword))
-    .slice(0, 2); // return top 1–2 matching groups
-}*/
-
-
 // Simple round-robin matching: evenly distribute photo groups across themes
 function matchThemesToPhotoGroups(themes, entries) {
   const allGroups = entries.flatMap(entry => entry.photoGroups);
@@ -48,6 +39,26 @@ function matchThemesToPhotoGroups(themes, entries) {
   }));
 }
 
+// Save the generated timeframe to localStorage
+function saveTimeframeToStorage(timeframeData) {
+  try {
+    let timeframes = [];
+    const savedTimeframes = localStorage.getItem('timeframes');
+    
+    if (savedTimeframes) {
+      timeframes = JSON.parse(savedTimeframes);
+    }
+    
+    // Add the new timeframe to the beginning of the array
+    timeframes = [timeframeData, ...timeframes];
+    
+    // Save back to localStorage
+    localStorage.setItem('timeframes', JSON.stringify(timeframes));
+    console.log('TimeFrame saved to localStorage');
+  } catch (error) {
+    console.error('Error saving timeframe to storage:', error);
+  }
+}
 
 // Core orchestrator function called by JournalSelection.jsx
 export async function generateTimeFrameFromEntries(entries) {
@@ -80,27 +91,21 @@ export async function generateTimeFrameFromEntries(entries) {
   console.log("AI themes:", themes);
   console.log("Matched groups:", matchedGroups);
 
-  return {
+  // Create the timeframe data with metadata
+  const timeframeData = {
+    id: `tf-${Date.now()}`, // Generate unique ID
     title: title.trim(),
     summary: summary.trim(),
+    createdAt: new Date().toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric'
+    }),
     groups: matchedGroups
   };
 
+  // Save to localStorage
+  saveTimeframeToStorage(timeframeData);
 
+  return timeframeData;
 }
-
-/*
-export async function generateTimeFrameFromEntries(entries) {
-  return {
-    title: "My Fun Week",
-    summary: "This week was packed with memories, laughs, and spontaneous adventures.",
-    groups: entries.flatMap(entry =>
-      entry.photoGroups.map(group => ({
-        title: "Theme Testing",
-        summary: "No caption provided.",
-        photoGroups: [group]
-      }))
-    )
-  };
-}
-*/
