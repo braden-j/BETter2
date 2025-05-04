@@ -1,80 +1,105 @@
 import axios from 'axios';
 
-const API_KEY = process.env.REACT_APP_OPENAI_API_KEY;
-const API_URL = 'https://api.openai.com/v1/chat/completions';
+const API_KEY = import.meta.env.VITE_OPENAI_API_KEY;
+const OPENAI_URL = 'https://api.openai.com/v1/chat/completions';
 const MODEL = 'gpt-3.5-turbo'; 
 
-const headers = {
-  'Content-Type': 'application/json',
-  Authorization: `Bearer ${API_KEY}`,
-};
-
-const systemPrompt = `
-You're a journaling assistant in an app called TimeFrame.
-
-Given a list of user-written captions (each representing a group of photos), do the following:
-1. Generate a title for the week — poetic, witty, or summary-like.
-2. Write a friendly paragraph summary of the week (2–3 sentences).
-3. Extract 4–8 themes from the captions. For each theme:
-   - Provide a short, lighthearted caption/snippet.
-   - List which photo group captions relate to the theme (by their index in the input).
-
-Return ONLY valid JSON. Structure it like this:
-
-{
-  "title": "...",
-  "summary": "...",
-  "themes": [
-    {
-      "theme": "...",
-      "snippet": "...",
-      "groupIndices": [0, 2]
-    },
-    ...
-  ]
-}
-`;
-
-export async function generateTimeframeFromCaptions(photoGroups, captions) {
-  const userPrompt = `
-Here are the photo group captions:
-
-${captions.map((caption, idx) => `${idx + 1}. ${caption}`).join('\n')}
-
-Generate the timeframe data as described.
-`;
-
+// Core API caller
+async function callOpenAI(prompt) {
   try {
     const response = await axios.post(
-      API_URL,
+      OPENAI_URL,
       {
         model: MODEL,
-        messages: [
-          { role: 'system', content: systemPrompt },
-          { role: 'user', content: userPrompt }
-        ],
-        temperature: 0.8,
+        messages: [{ role: 'user', content: prompt }],
+        temperature: 0.7
       },
-      { headers }
+      {
+        headers: {
+          Authorization: `Bearer ${API_KEY}`,
+          'Content-Type': 'application/json'
+        }
+      }
     );
-
-    const content = response.data.choices[0].message.content;
-    const parsed = JSON.parse(content);
-
-    // Map groupIndices back to actual groups
-    const themes = parsed.themes.map(theme => ({
-      ...theme,
-      photoGroups: theme.groupIndices.map(idx => photoGroups[idx])
-    }));
-
-    return {
-      title: parsed.title,
-      summary: parsed.summary,
-      themes,
-      groups: photoGroups // optionally keep this for TimeFrame.jsx display
-    };
-  } catch (err) {
-    console.error("OpenAI error:", err.response?.data || err.message);
-    throw new Error("Failed to generate AI content.");
+    return response.data.choices?.[0]?.message?.content || '';
+  } catch (error) {
+    console.error("OpenAI API call failed:", error.message);
+    return '';
   }
 }
+
+/*// Helper to match photo groups to themes by caption keywords
+function matchPhotoGroupsToTheme(theme, photoGroups) {
+  const keyword = theme.toLowerCase();
+  return photoGroups
+    .filter(group => group.caption.toLowerCase().includes(keyword))
+    .slice(0, 2); // return top 1–2 matching groups
+}*/
+
+
+// Simple round-robin matching: evenly distribute photo groups across themes
+function matchThemesToPhotoGroups(themes, entries) {
+  const allGroups = entries.flatMap(entry => entry.photoGroups);
+  
+  return themes.map((theme, i) => ({
+    title: theme.theme,
+    summary: theme.caption,
+    photoGroups: allGroups.filter((_, idx) => idx % themes.length === i)
+  }));
+}
+
+
+// Core orchestrator function called by JournalSelection.jsx
+export async function generateTimeFrameFromEntries(entries) {
+  const allCaptions = entries.flatMap(entry =>
+    entry.photoGroups.map(group => group.caption || '')
+  );
+  const textBlob = allCaptions.join('\n');
+
+  // Prompt all 3 generations in parallel
+  const [title, summary, themesRaw] = await Promise.all([
+    callOpenAI(`Create a short and fun title summarizing this set of journal captions (they might not be from the same day):\n\n${textBlob}`),
+    callOpenAI(`Write a concise and thoughtful paragraph that captures the tone and highlights of the following journal captions (they might not be from the same day):\n\n${textBlob}`),
+    callOpenAI(`From the following text:\n\n${textBlob}\n\nIdentify 4 to 8 themes. For each theme, generate a fun, short caption. Remember, this is a aggregated journal entry that might be from multiple days. Return your output as a JSON array with keys: "theme" and "caption".`)
+  ]);
+
+  let themes = [];
+  try {
+    const parsed = JSON.parse(themesRaw);
+    themes = Array.isArray(parsed) ? parsed : parsed.themes;
+  } catch (err) {
+    console.warn("Failed to parse theme JSON:", err);
+    themes = [{ theme: 'Moments', caption: 'Snapshots from a week of memories.' }];
+  }
+
+  // Match photo groups to each theme
+  const matchedGroups = matchThemesToPhotoGroups(themes, entries);
+
+  console.log(title);
+  console.log(summary);
+  console.log("AI themes:", themes);
+  console.log("Matched groups:", matchedGroups);
+
+  return {
+    summary: summary.trim(),
+    groups: matchedGroups
+  };
+
+
+}
+
+/*
+export async function generateTimeFrameFromEntries(entries) {
+  return {
+    title: "My Fun Week",
+    summary: "This week was packed with memories, laughs, and spontaneous adventures.",
+    groups: entries.flatMap(entry =>
+      entry.photoGroups.map(group => ({
+        title: "Theme Testing",
+        summary: "No caption provided.",
+        photoGroups: [group]
+      }))
+    )
+  };
+}
+*/

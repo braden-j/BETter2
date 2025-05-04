@@ -3,12 +3,14 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import TopNav from './TopNav';
 import BottomNav from './BottomNav';
 import './JournalSelection.css';
-import { hardcodeEntries, timeframe, timeframe2 } from './hardcodeData';
+//import { hardcodeEntries, timeframe, timeframe2 } from './hardcodeData';
+import { generateTimeFrameFromEntries } from './services/openaiService';
 
 function JournalSelection() {
   const navigate = useNavigate();
   const [entries, setEntries] = useState([]);
   const [selectedEntries, setSelectedEntries] = useState([]);
+  const [loading, setLoading] = useState(false);
   
   useEffect(() => {
     const loadEntries = () => {
@@ -48,8 +50,32 @@ function JournalSelection() {
 
   // Hardcoded TimeFrame right now, needs to be fixed to use AI
   // Just sends hardcoded TimeFrame right now
-  const handleContinue = () => {
+  /*const handleContinue = () => {
     navigate('/timeframe', { state: { timeframeData: timeframe2 } });
+  };*/
+
+  /*const handleContinue = async () => {
+    try {
+      const timeframeData = await generateTimeFrameFromEntries(selectedEntries);
+      navigate('/timeframe', { state: { timeframeData } });
+    } catch (error) {
+      console.error("Failed to generate timeframe:", error);
+      alert("Something went wrong while generating your TimeFrame. Please try again.");
+    }
+  };  */
+
+  const handleContinue = async () => {
+    setLoading(true); // show spinner
+  
+    try {
+      const aiData = await generateTimeFrameFromEntries(selectedEntries);
+      navigate('/timeframe', { state: { timeframeData: aiData } });
+    } catch (error) {
+      console.error("AI generation failed:", error);
+      alert("Something went wrong while generating your TimeFrame.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const isEntrySelected = (entryId) => {
@@ -109,6 +135,13 @@ function JournalSelection() {
           ))}
         </div>
       </div>
+
+      {loading && (
+        <div className="loading-overlay">
+          <p>Generating your TimeFrame… ✨</p>
+        </div>
+      )}
+
 
       <BottomNav 
         onNextClick={handleContinue}
