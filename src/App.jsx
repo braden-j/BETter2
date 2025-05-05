@@ -10,10 +10,12 @@ import JournalSelection from './JournalSelection';
 import JournalEntry from './JournalEntry';
 import TimeFrameEntries from './TimeFrameEntries';
 import './App.css';
+import ScrollToTop from './ScrollToTop';
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="app-container">
         <main className="app-main">
           <Routes>

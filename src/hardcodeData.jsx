@@ -183,7 +183,7 @@ const hardcodeEntries = [
             photos: [
               { id: 1401, src: Friday6 }
             ],
-            caption: `No classes today, but still a packed schedule. Spent most of the morning cleaning the kitchen — and honestly, it needed it. When that many girls share one space, it doesn’t take long for dishes, mystery containers, and tea mugs to accumulate like a science experiment. I blasted music and went full deep-clean mode. Scrubbed the counters, reorganized the spice rack, and finally threw out the half-sliced onion that had been haunting the fridge. It was chaos, then it was peace.`
+            caption: `Spent most of the morning cleaning the kitchen — and honestly, it needed it. When that many girls share one space, it doesn’t take long for dishes, mystery containers, and tea mugs to accumulate like a science experiment. I blasted music and went full deep-clean mode. Scrubbed the counters, reorganized the spice rack, and finally threw out the half-sliced onion that had been haunting the fridge.`
         },
         {
             id: 15,

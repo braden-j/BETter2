@@ -32,8 +32,8 @@ function BottomNav({ onNextClick, nextLabel = 'Next', showUtilityButtons = true,
 
       {showNextButton && (
         <button className="next-btn" onClick={onNextClick}>
-          <img src={nextIcon} className="next-button-icon" alt="Next" />
           <span className="next-button-label">{nextLabel}</span>
+          <img src={nextIcon} className="next-button-icon" alt="Next" />
         </button>
       )}
     </div>

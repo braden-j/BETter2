@@ -1,3 +1,10 @@
+.timeframe-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
 .caption-groups-container {
     display: flex;
     flex-direction: column;
@@ -10,6 +17,7 @@
     background-color: #FFFFFF;
     color: #000000;
     overflow-y: auto;
+    padding-bottom: 50px;
   }
   
   .timeframe-header {
