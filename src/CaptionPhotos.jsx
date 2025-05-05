@@ -56,6 +56,8 @@ function CaptionPhotos() {
     setCaption(e.target.value);
   };
 
+  const isNextDisabled = caption.trim().length < 4;
+
   const handleNext = () => {
     const currentGroup = groups[currGroup];
     const updatedCaptions = { ...allCaptions, [currentGroup.id]: caption };
@@ -174,6 +176,7 @@ function CaptionPhotos() {
           <button 
             className="caption-nav-button next"
             onClick={handleNext}
+            disabled = {isNextDisabled}
           >
             {isLastGroup ? "Finish" : "Next"}
           </button>

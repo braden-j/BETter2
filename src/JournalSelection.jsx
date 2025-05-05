@@ -144,7 +144,7 @@ function JournalSelection() {
 
       <BottomNav 
         onNextClick={handleContinue}
-        nextLabel={`Generate TimeFrame (${selectedEntries.length})`}
+        nextLabel={`Generate (${selectedEntries.length})`}
         showUtilityButtons={true}
         showNextButton={selectedEntries.length > 0}
       />
