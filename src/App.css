@@ -38,6 +38,7 @@ body {
   font-size: 1.3rem;
 }
 
+
 .app-nav ul {
   list-style-type: none;
   margin: 0;
@@ -131,7 +132,13 @@ body {
   }
 }
 
-.courgette {
-  font-family: 'Courgette', cursive;
+.Roboto {
+  font-family: 'Roboto';
   color: #35507D;
 }
+
+/* to make all buttons use Roboto */
+button {
+  font-family: 'Roboto', sans-serif;
+}
+

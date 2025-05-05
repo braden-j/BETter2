@@ -37,11 +37,11 @@
   font-size: 1rem;
   resize: none;
   outline: none;
-  font-family: 'Courgette', cursive;
+  font-family: 'Roboto';
 }
 
 .journal-textarea::placeholder {
-  font-family: 'Courgette', cursive;
+  font-family: 'Roboto';
   color: #D2E2F1;
   font-size: 1rem;
 }

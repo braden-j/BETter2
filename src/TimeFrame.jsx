@@ -18,7 +18,7 @@ function TimeFrame() {
   }, [timeframeData]);
 
   const handleBack = () => {
-    navigate('/journal-entries');
+    navigate('/timeframe-entries');
   };
 
   if (groups.length === 0) {

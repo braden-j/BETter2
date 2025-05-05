@@ -6,7 +6,7 @@
 
 .content-area {
   flex: 1;
-  padding: 1rem;
+  padding: 80px 1rem 1rem 1rem; /* 60px top nav + 20px breathing room */
   background-color: #FFFFFF;
   color: #000000;
   overflow-y: auto;

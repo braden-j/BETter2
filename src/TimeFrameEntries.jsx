@@ -132,17 +132,12 @@ function TimeFrameEntries() {
       <div className="content-area">
         <TopNav 
           title="TimeFrame" 
-          showBack={false}
+          showBack={true}
+          onBackClick={handleViewJournals}
         />
         
         <div className="photos-header">
           <h2 className="group-title">Your TimeFrames</h2>
-          <button 
-            className="group-action-button"
-            onClick={handleViewJournals}
-          >
-            View Journals
-          </button>
         </div>
         
         <div className="timeframe-entries-list">

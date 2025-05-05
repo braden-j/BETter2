@@ -50,7 +50,7 @@
   font-size: 0.9rem;
   cursor: pointer;
   transition: all 0.2s ease;
-  font-family: 'Courgette', cursive;
+  font-family: 'Roboto';
 }
 
 .back-button button:hover {

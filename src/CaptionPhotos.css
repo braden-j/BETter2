@@ -76,6 +76,7 @@
 .caption-label {
   font-size: 1rem;
   color: #35507D;
+  font-family: 'Quicksand', sans-serif;
 }
 
 .caption-input {
@@ -87,12 +88,14 @@
   background-color: #889ABA;
   color: #FFFFFF;
   font-size: 1rem;
+  font-family: 'Roboto', sans-serif;
   resize: none;
   outline: none;
 }
 
 .caption-input::placeholder {
   color: #D2E2F1;
+  font-family: 'Roboto', sans-serif;
 }
 
 .caption-navigation {

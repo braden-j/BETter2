@@ -10,7 +10,7 @@
 
 .content-area {
   flex: 1;
-  padding: 1rem;
+  padding: 80px 1rem 1rem 1rem; /* Top padding = TopNav height (60px) + 20px buffer */
   overflow-y: auto;
 }
 
