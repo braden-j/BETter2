@@ -50,7 +50,7 @@ const hardcodeEntries = [
           { id: 101, src: Monday3 },
           { id: 102, src: Monday4 }
         ],
-        caption: "Walked to Intro to Acting with Anjali this morning. She was wearing the goofiest hat — like something from a children's show — and I couldn’t stop laughing. We passed a tree in full bloom near Walnut that looked like something out of a painting, so of course we had to take a photo. The whole walk just felt like a soft, weirdly perfect way to start the week."
+        caption: "Walked to Intro to Acting with my friend, Anjali this morning. She was wearing the goofiest hat — like something from a children's show — and I couldn’t stop laughing. We passed a tree in full bloom near Walnut that looked like something out of a painting, so of course we had to take a photo. The whole walk just felt like a soft, weirdly perfect way to start the week."
       },
       {
         id: 2,
@@ -58,7 +58,7 @@ const hardcodeEntries = [
           { id: 201, src: Monday5 },
           { id: 202, src: Monday6 }
         ],
-        caption: "After class, I stopped at Joe Coffee for an iced matcha and an egg sandwich, then headed to CS Algorithms. We dove into vertex covers and NP-complete problems — it was heavy but interesting. I grabbed a few photos of the board; I’ll need them when I inevitably forget everything by Thursday."
+        caption: "After class, I stopped at Joe's Cafe for an iced matcha and an egg sandwich, then headed to Computer Science Algorithms. We dove into vertex covers and NP-complete problems — it was heavy but interesting. I grabbed a few photos of the chalkboard; I’ll need them when I inevitably forget everything by Thursday."
       },
       {
         id: 3,
@@ -66,7 +66,7 @@ const hardcodeEntries = [
             { id: 301, src: Monday1 },
             { id: 302, src: Monday2 }
         ],
-        caption: "Lunch was quick: leftover grain bowl with salmon, chickpeas, and farro. Nothing fancy. Around 6, I went over to Skylar’s apartment with Avia. We baked lemon shortbread cookies, made tea, and talked for hours. Very cozy vibes. There were oven mitts worn on heads at one point. Skylar lit a candle that smelled like vanilla and cedar — it weirdly made me feel safe."
+        caption: "Lunch was quick: leftover grain bowl with salmon, chickpeas, and farro. Nothing fancy. Around 6, I went over to my friend, Skylar’s apartment with Avia. We baked lemon shortbread cookies, made tea, and talked for hours. Very cozy vibes. There were oven mitts worn on heads at one point. Skylar lit a candle that smelled like vanilla and cedar — it weirdly made me feel safe."
       }
     ]
   },
@@ -81,7 +81,7 @@ const hardcodeEntries = [
           { id: 401, src: Tuesday2 },
           { id: 402, src: Tuesday3 }
         ],
-        caption: "Today was one of those weirdly scattered but solid days. Started with Ethical Algorithms — I honestly didn’t fully grasp what was going on, but we were talking about some fairness framework from the late ’90s? Game theory stuff. I took a photo of the whiteboard hoping it would make more sense later. It hasn’t yet, but future me might thank me."
+        caption: "Today was one of those weirdly scattered but solid days. Started with Ethical Algorithms class — I honestly didn’t fully grasp what was going on, but we were talking about some fairness algorithm from the late ’90s? Game theory stuff. I took a photo of the whiteboard hoping it would make more sense later. It hasn’t yet, but future me might thank me."
       },
       {
         id: 5,
@@ -96,7 +96,7 @@ const hardcodeEntries = [
           { id: 601, src: Tuesday4 },
           { id: 602, src: Tuesday5 }
         ],
-        caption: `No formal workout today, but I walked a lot — between classes, errands, and wandering with Siri after we both finished up for the day. We randomly stumbled on a Ben & Jerry’s promo and got free cones. I got Cherry Garcia, she got Phish Food. There’s something about surprise ice cream that instantly upgrades your whole afternoon.
+        caption: `No formal workout today, but I walked a lot — between classes, errands, and wandering with my friend Siri after we both finished up for the day. We randomly stumbled on a Ben & Jerry’s promo and got free cones. I got Cherry Garcia, she got Phish Food. There’s something about surprise ice cream that instantly upgrades your whole afternoon.
                 We sat on the edge of a planter and talked about everything and nothing. I always feel better after time with her — like the inside of my brain gets less tangled. Afterward, I hit the library and did some light editing on my HCI writeup and skimmed slides for tomorrow’s acting class.`
       },
     ]
@@ -112,7 +112,7 @@ const hardcodeEntries = [
           { id: 701, src: Wednesday1 },
           { id: 702, src: Wednesday2 }
         ],
-        caption: "After class, I met up with Maria for lunch at McClelland — our go-to chicken bowls. They hit every time. We sat in that little courtyard area and caught up on life and how we both feel like we’re drowning in Google Docs and group projects. Classic mid-semester mood."
+        caption: "After class, I got a chicken bowl for lunch. I was SO hangry, it was delicious. I met up with Maria for lunch. We sat in that little courtyard area and caught up. Classic mid-semester mood."
       },
       {
         id: 8,
@@ -127,14 +127,14 @@ const hardcodeEntries = [
           { id: 901, src: Wednesday4 },
           { id: 902, src: Wednesday5 }
         ],
-        caption: "Later, I needed help with a GitHub repo, so I stopped by Braden’s place. His house didn’t have a usable table (classic), so we literally used the pool table as a makeshift workstation. Honestly? Not the worst setup. He helped me sort through the issue and pushed a clean commit. Life-saver."
+        caption: "Later, I was working on my homework for Human Computer Inteaction class. I needed help with the assignment. Most specifically, I needed help with my GitHub repo for the computer science class, so I stopped by Braden’s place. His house didn’t have a usable table (classic), so we literally used the pool table as a makeshift workstation. Honestly? Not the worst setup. He helped me sort through the issue and pushed a clean commit. Life-saver."
       },
       {
         id: 10,
         photos: [
           { id: 1001, src: Wednesday6 }
         ],
-        caption: `Wrapped up the night with Ryan — we hit 7/11 for late-night snacks. I got Hot Cheetos and a Coke, and we sat outside just talking and decompressing. It was chill, silly, and the perfect way to end a long one.
+        caption: `Wrapped up the night with Ryan — we were having a late night chat session and got hungry. So, we hit 7/11 for late-night snacks. I got Hot Cheetos and a Coke, and we sat outside just talking and decompressing. It was chill, silly, and the perfect way to end a long one.
                 Brain = tired. Heart = full.`
       }
     ]
@@ -157,7 +157,7 @@ const hardcodeEntries = [
           { id: 1201, src: Thursday6 },
           { id: 1202, src: Thursday7 }
         ],
-        caption: "After classes wrapped up, I headed back to Huntsman to meet Alan and Connor. We spent the afternoon grinding out CS algorithms homework. Alan had a really clean approach for question 3 that helped us unblock a whole section, and I actually think we might finish early for once? Wild. Alan and I walked back together — it was cold and windy, but we were laughing most of the way. Something about mutual academic pain is bonding."
+        caption: "After classes wrapped up, I needed to work on my computer science homework. I went to Huntsman hall where I met my teammates, Alan and Connor. We spent the afternoon grinding out CS algorithms homework. The problems were really hard and it took us a long time! Alan had a really clean approach for question 3 that helped us unblock a whole section, and I actually think we might finish early for once? Wild. Alan and I walked back together — it was cold and windy, but we were laughing most of the way. Something about mutual academic pain is bonding."
       },
       {
         id: 13,
@@ -169,7 +169,7 @@ const hardcodeEntries = [
           { id: 1305, src: Thursday5 }
         ],
         caption: `Then I rushed to change and head to Hita’s birthday dinner downtown — we went to a beautiful Israeli restaurant. The lighting was warm, the food was incredible (I’m still thinking about the roasted eggplant), and Hita was glowing. We split a few dishes, toasted with wine, and just talked for a long time. The cold walk back after dinner felt less harsh — maybe because I was still full and happy.
-                Ending the night tired but content. It was one of those days that felt like Penn at its best.`
+                Ending the night tired but content. It was one of those days that felt like University of Pennsylvania at its best.`
       }
     ]
   },
@@ -224,14 +224,14 @@ const hardcodeEntries = [
             photos: [
               { id: 1801, src: Saturday4 }
             ],
-            caption: `Later, I met up with Siri and Hita for lunch — we found a spot with outdoor seating (blessing) and just enjoyed the sun and catching up. It felt like a reset button. The food was good, too — I got a salad with salmon and roasted sweet potatoes that somehow hit all the right notes.`
+            caption: `Later, I met up with Siri and Hita to hangout — we found a spot with outdoor seating (blessing) and just enjoyed the sun and catching up. It felt like a reset button.`
         },
         {
             id: 19,
             photos: [
               { id: 1901, src: Saturday5 }
             ],
-            caption: `In the afternoon, I moved outside to keep working and ended up hanging out with Harper, who joined me on the bench near the bio building. She told me all about the bio research she’s doing — something to do with protein folding and fluorescence? I definitely didn’t follow every detail, but she lit up when she talked about it, and that kind of energy is contagious. We shared a snack and laughed about how different our majors are.`
+            caption: `In the afternoon, I moved outside to keep working and ended up hanging out with Harper, who joined me on the bench near the bio building. She told me all about the bio research she’s doing. I definitely didn’t follow every detail, but she lit up when she talked about it, and that kind of energy is contagious. We shared a snack and laughed about how different our majors are.`
         },
         {
             id: 20,

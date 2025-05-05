@@ -12,12 +12,12 @@ function TimeFrameEntries() {
   const bottomSpacerRef = useRef(null);
 
     // To clear local storage, uncomment this (make sure to comment back after so it doesn't continuously reset)
-//   try {
-//     localStorage.removeItem('timeframes');
-//     console.log('Timeframe entries have been reset');
-//   } catch (e) {
-//     console.error('Failed to reset Timeframe entries:', e);
-//   }
+  // try {
+  //   localStorage.removeItem('timeframes');
+  //   console.log('Timeframe entries have been reset');
+  // } catch (e) {
+  //   console.error('Failed to reset Timeframe entries:', e);
+  // }
   
   useEffect(() => {
     const loadTimeframes = () => {
